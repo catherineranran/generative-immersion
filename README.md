@@ -9,7 +9,7 @@ Promoters: Ranran Li (Max Planck Institute for the Study of Crime, Security and 
 
 | Address | File | What it is |
 |---|---|---|
-| `/` | `index.html` | Main page: 01 About, 02 Technology, 03 Ongoing research, 04 Promise, 05 People & contact, 06 Paper (with the journal outlets link beneath it) |
+| `/` | `index.html` | Main page: 01 About, 02 Technology, 03 Ongoing research (perspective paper, two studies, journal outlets link), 04 Promise, 05 People & connect |
 | `/AI-advances/` | `AI-advances/index.html` + `items.json` | Picture-first cards tracing AI advances |
 | `/journals/` | `journals/index.html` | Forwards to the Generative Immersion Journal Atlas on ranranli.net |
 | any missing page | `404.html` | Glass "not found" page |
@@ -49,7 +49,8 @@ Update `"updated"` at the top of the file. Filter chips appear once there are tw
 
 ## Ongoing research cards
 
-Each project in `index.html` is an `article.project`: the figure on the left (`figure.project-fig`, `--fig` sets the colour around it), then label, title, subtitle, description and a `Related publications` list. Scalable Immersion uses `assets/figures/scalable-immersion.webp`; the Generative Enactments diagram is an inline SVG. On phones the figure moves above the text.
+The section opens with the perspective paper (`article.paper`, a TBC stamp until the preprint is out) and closes with the link to the journal outlets (`a.outlets`).
+Each project in between is an `article.project`: the figure on the left (`figure.project-fig`, `--fig` sets the colour around it), then label, title, subtitle, description and a `Related publications` list. Scalable Immersion uses `assets/figures/scalable-immersion.webp`; the Generative Enactments diagram is an inline SVG. On phones the figure moves above the text.
 
 ## Videos on the main page
 

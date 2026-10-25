@@ -434,11 +434,14 @@ section { scroll-margin-top: 84px; }
 .caveat h3 { margin: 6px 0 0; font: italic 400 26px/1.2 var(--serif); }
 .caveat p { margin: 0; color: var(--ink-2); }
 .refs { grid-column: 1 / -1; margin: 6px 0 0; padding-top: 16px; border-top: 1px solid var(--line-2); font-size: 13.5px; line-height: 1.6; color: var(--muted); }
+.caveat .refs .label { margin: 0 0 6px; font-size: 11px; color: var(--muted); }
+.refs ul { list-style: none; margin: 0; padding: 0; }
+.refs li + li { margin-top: 4px; }
 .refs a { color: var(--muted); }
 .refs a:hover { color: #fff; }
 
 /* --------------------------------------------------------------------------
-   04 People: the homepage's contact glass
+   05 People & connect: the homepage's contact glass
    -------------------------------------------------------------------------- */
 .promoters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
 .contact { border-radius: 22px; padding: 20px 22px 18px; }
@@ -455,8 +458,7 @@ section { scroll-margin-top: 84px; }
 .collab-head { display: flex; align-items: baseline; gap: 14px; margin: 56px 0 16px; }
 .collab-head h3 { margin: 0; font: 650 22px/1.2 var(--sans); letter-spacing: -.015em; }
 .collabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-.collab { display: block; border-radius: 22px; padding: 20px 22px; color: #fff; text-decoration: none; transition: transform .25s var(--ease); }
-a.collab:hover { transform: translateY(-2px); }
+.collab { display: block; border-radius: 22px; padding: 20px 22px; color: #fff; }
 .collab b { display: block; font-size: 18px; line-height: 1.3; font-weight: 650; letter-spacing: -.01em; }
 .collab span { display: block; margin-top: 4px; font-size: 14.5px; line-height: 1.5; color: rgba(226, 232, 240, .8); }
 .collab span + span { margin-top: 0; }
@@ -464,12 +466,12 @@ a.collab:hover { transform: translateY(-2px); }
 .collab-tba b { font: italic 400 18px/1.3 var(--serif); }
 
 /* --------------------------------------------------------------------------
-   05 Paper
+   03 Ongoing research: the perspective paper (first) and journal outlets (last)
    -------------------------------------------------------------------------- */
-.paper { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 26px 40px; align-items: center; border-radius: 30px; padding: 34px 40px; }
+.paper { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 26px 40px; align-items: center; border-radius: 28px; padding: 34px 40px; }
 .outlets {
   display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 16px 22px;
-  margin-top: 18px; padding: 20px 24px; border-radius: 22px; color: #fff; text-decoration: none;
+  margin-top: 22px; padding: 20px 24px; border-radius: 22px; color: #fff; text-decoration: none;
   transition: transform .25s var(--ease), border-color .25s;
 }
 .outlets:hover { transform: translateY(-2px); border-color: rgba(255, 255, 255, .3); }
@@ -502,6 +504,7 @@ a.collab:hover { transform: translateY(-2px); }
   font-size: 13.5px; color: rgba(226, 232, 240, .78);
 }
 .foot nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.foot .nobr { white-space: nowrap; }
 .foot a { color: rgba(226, 232, 240, .86); text-decoration: none; }
 .foot a:hover { color: #fff; text-decoration: underline; }
 
@@ -565,8 +568,7 @@ a.collab:hover { transform: translateY(-2px); }
 .adv-actions .icon-btn { width: 34px; height: 34px; background: transparent; border-color: transparent; box-shadow: none; color: var(--muted); }
 .adv-actions .icon-btn:hover { background: var(--glass-3); color: #fff; }
 .adv-actions .icon-btn svg { width: 16px; height: 16px; }
-.adv-empty, .adv-foot { text-align: center; color: var(--ink-2); text-shadow: 0 1px 8px rgba(30, 20, 80, .45); }
-.adv-foot { margin: 26px 0 0; font-size: 13.5px; }
+.adv-empty { text-align: center; color: var(--ink-2); text-shadow: 0 1px 8px rgba(30, 20, 80, .45); }
 
 /* --------------------------------------------------------------------------
    Small screens
