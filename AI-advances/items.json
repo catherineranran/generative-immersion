@@ -1,0 +1,25 @@
+{
+  "updated": "2026-10-25",
+  "items": [
+    {
+      "id": "seedance-2-5",
+      "name": "Seedance 2.5",
+      "org": "ByteDance Seed",
+      "kind": "video",
+      "date": "2026-07-31",
+      "added": "2026-10-25",
+      "summary": "Generates up to 30 seconds of video with synchronized sound in one pass, carries a scene on over several rounds with the same characters, and edits single timestamps, camera moves or a green-screen background.",
+      "why": "A scene can be held constant while one cue changes, which is what an experimental manipulation needs.",
+      "link": "https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5",
+      "linkLabel": "Announcement",
+      "links": [
+        { "label": "Model page", "url": "https://seed.bytedance.com/en/seedance2_5", "icon": "page" },
+        { "label": "API on BytePlus ModelArk", "url": "https://www.byteplus.com/en/blog/dreamina-seedance2-5", "icon": "code" },
+        { "label": "Watch the one-take demo", "url": "https://lf3-static.bytednsdoc.com/obj/eden-cn/lapzild-tss/ljhwZthlaukjlkulzlp/user-upload/4xfa4ms8egv8p.mp4", "icon": "play" }
+      ],
+      "img": "img/seedance-2-5.webp",
+      "imgAlt": "Still from ByteDance Seed's one-take demo: a singer in a green sequined dress steps out on stage",
+      "credit": "Picture: still from an official ByteDance Seed demo clip"
+    }
+  ]
+}

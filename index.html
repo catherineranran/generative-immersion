@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Generative Immersion</title>
+  <meta name="description" content="Generative immersion: AI-generated immersive situations as research instruments for the behavioral sciences. Initiated by Ranran Li and Botao Amber Hu.">
+  <link rel="canonical" href="https://www.generative-immersion.com/">
+  <meta name="theme-color" content="#2a2a62">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Generative Immersion">
+  <meta property="og:title" content="Generative Immersion">
+  <meta property="og:description" content="AI-generated immersive situations as research instruments for the behavioral sciences.">
+  <meta property="og:url" content="https://www.generative-immersion.com/">
+  <meta property="og:image" content="https://www.generative-immersion.com/assets/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;650;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css?v=1">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- liquid-glass refraction for the nav (Chromium; elsewhere the plain blur is used) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <filter id="lg-refraction" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.008 0.03" numOctaves="2" seed="7" result="noise"/>
+      <feGaussianBlur in="noise" stdDeviation="2" result="soft"/>
+      <feDisplacementMap in="SourceGraphic" in2="soft" scale="26" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </svg>
+
+  <div class="sky" aria-hidden="true">
+    <div class="sky-day"></div>
+    <div class="sky-night">
+      <div class="sky-night-air"><i></i><i></i><i></i></div>
+      <canvas class="sky-stars"></canvas>
+      <div class="sky-peaks-night"></div>
+    </div>
+    <div class="sky-veil"></div>
+  </div>
+
+  <div class="nav-wrap">
+    <nav class="nav" aria-label="Main">
+      <div class="nav-track">
+        <span class="nav-thumb" aria-hidden="true"></span>
+        <a class="nav-item nav-brand" href="#about"><img src="assets/favicon.svg" alt="" width="26" height="26"><span>Generative Immersion</span></a>
+        <span class="nav-sep" aria-hidden="true"></span>
+        <a class="nav-item" href="#about">About</a>
+        <a class="nav-item" href="#technology">Technology</a>
+        <a class="nav-item" href="#promise">Promise</a>
+        <a class="nav-item" href="#people">People</a>
+        <a class="nav-item" href="#paper">Paper</a>
+        <span class="nav-sep" aria-hidden="true"></span>
+        <a class="nav-item" href="AI-advances/">AI advances</a>
+        <a class="nav-item" href="https://ranranli.net/generative-immersion-journals/">Journal outlets<span class="nav-ext" aria-hidden="true">&#8599;</span></a>
+      </div>
+    </nav>
+  </div>
+
+  <main id="main">
+
+    <!-- 01 About -->
+    <section id="about" class="wrap hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="label rise">01 &middot; A research agenda for the behavioral sciences</p>
+        <h1 id="hero-title" class="hero-title rise rise-2"><span>Generative</span><em>Immersion</em></h1>
+        <p class="hero-lead rise rise-3">
+          Generative immersion places people inside situations that AI has generated: scenes, people and events made by
+          video and world models rather than filmed on location or modeled by hand. For the behavioral sciences, it turns
+          the immersive scenario into something you can <strong>write, vary and share</strong>, much like an item on a questionnaire.
+        </p>
+        <div class="hero-actions rise rise-3">
+          <a class="btn primary" href="#technology">See what the models make now</a>
+          <a class="arrow-link" href="AI-advances/">Follow AI advances <span aria-hidden="true">&rarr;</span></a>
+        </div>
+        <p class="hero-meta rise rise-3">Initiated by <a href="#people">Ranran Li &amp; Botao Amber Hu</a> &middot; Freiburg &amp; Oxford &middot; 2026</p>
+      </div>
+
+      <aside class="define glass rise rise-3" aria-labelledby="define-title">
+        <h2 id="define-title" class="label">What we mean</h2>
+        <dl>
+          <div class="define-row">
+            <dt data-n="A">Generated</dt>
+            <dd>Settings, people and events come from video, world and 3D models, prompted with text, images or reference footage.</dd>
+          </div>
+          <div class="define-row">
+            <dt data-n="B">Immersive</dt>
+            <dd>Experienced from the inside: as video on a screen, a magic window that follows the viewer, an explorable world, or in a VR headset.</dd>
+          </div>
+          <div class="define-row">
+            <dt data-n="C">Scenario or world</dt>
+            <dd>A fixed scenario that everyone sees, a branching one that reacts to choices, or an open world that keeps generating as people move through it.</dd>
+          </div>
+        </dl>
+      </aside>
+    </section>
+
+    <!-- 02 Technology -->
+    <section id="technology" class="sec" aria-labelledby="tech-title">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="label">02 &middot; Technology</p>
+          <h2 id="tech-title" class="sec-title">What the models <em>make now</em></h2>
+          <p class="sec-intro">Two lines of development meet here. Video models now hold a scene together over long continuous shots, with sound. World models turn a prompt or a photo into a space you can move through.</p>
+        </header>
+        <div class="board-tools">
+          <p class="board-hint"><svg viewBox="0 0 30 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 6h28M5 2 1 6l4 4M25 2l4 4-4 4"/></svg>Scroll sideways through the strands, and down within each one.</p>
+          <button class="icon-btn" type="button" data-board="prev" aria-label="Previous strand" aria-controls="tech-board">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button class="icon-btn" type="button" data-board="next" aria-label="Next strand" aria-controls="tech-board">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="board-wrap" id="tech-board" tabindex="0" role="region" aria-label="Technology strands, scrollable sideways">
+        <div class="board">
+
+          <!-- 01 video -->
+          <article class="strand strand-1 glass" aria-labelledby="s1-title">
+            <header class="strand-head">
+              <div>
+                <span class="strand-num">01</span>
+                <h3 id="s1-title">AI video generation</h3>
+              </div>
+              <span class="strand-mark">TEXT &rarr; VIDEO</span>
+            </header>
+            <div class="strand-body">
+              <p class="strand-intro">The same people, the same place and synchronized sound, held together across long continuous shots.</p>
+              <figure style="margin:0">
+                <div class="media">
+                  <video controls playsinline preload="none" data-fallback="https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5" data-src="https://lf3-static.bytednsdoc.com/obj/eden-cn/lapzild-tss/ljhwZthlaukjlkulzlp/user-upload/4xfa4ms8egv8p.mp4#t=0.6" aria-label="Seedance 2.5 demo: one 30-second take that follows a singer from her dressing room to the stage"></video>
+                </div>
+                <figcaption class="cap"><b>Seedance 2.5</b><span>ByteDance Seed</span><span>Jul 2026</span><span>one 30-second take from a text prompt, with sound</span></figcaption>
+              </figure>
+              <p>Seedance 2.5 generates up to 30 seconds of video and sound in a single pass, and extends a scene round after round while keeping its characters and setting. It can draw on up to 30 images, 10 video clips and 10 audio clips at once, and on untextured 3D renders that fix the blocking and the camera path.</p>
+              <p>Edits can target a single timestamp, the camera move or a green-screen background, while the rest of the scene stays as it was.</p>
+              <p class="note"><span class="label">For research</span>Keeping everything constant while one element changes is the logic of an experimental manipulation.</p>
+
+              <h4>More from the same release</h4>
+              <div class="mini-grid">
+                <figure style="margin:0">
+                  <div class="media">
+                    <video controls playsinline preload="none" data-fallback="https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5" data-src="https://lf3-static.bytednsdoc.com/obj/eden-cn/lapzild-tss/ljhwZthlaukjlkulzlp/user-upload/4xfa4ms8athfv.mp4#t=0.6" aria-label="Seedance 2.5 demo: a scene extended over two rounds with the same characters"></video>
+                  </div>
+                  <figcaption class="cap"><b>Extension</b><span>a scene carried on with the same characters, 65 s</span></figcaption>
+                </figure>
+                <figure style="margin:0">
+                  <div class="media">
+                    <video controls playsinline preload="none" data-fallback="https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5" data-src="https://lf3-static.bytednsdoc.com/obj/eden-cn/lapzild-tss/ljhwZthlaukjlkulzlp/user-upload/4xfa4ms8avi1f.mp4#t=0.6" aria-label="Seedance 2.5 demo: an untextured 3D render sets the camera, pacing and blocking"></video>
+                  </div>
+                  <figcaption class="cap"><b>Clay-render reference</b><span>a rough 3D layout sets camera and blocking, 31 s</span></figcaption>
+                </figure>
+              </div>
+              <div class="links">
+                <a class="btn small" href="https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5" target="_blank" rel="noopener">Announcement &#8599;</a>
+                <a class="btn small" href="https://seed.bytedance.com/en/seedance2_5" target="_blank" rel="noopener">Model page &#8599;</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 02 worlds -->
+          <article class="strand strand-2 glass" aria-labelledby="s2-title">
+            <header class="strand-head">
+              <div>
+                <span class="strand-num">02</span>
+                <h3 id="s2-title">World generation</h3>
+              </div>
+              <span class="strand-mark">PROMPT &rarr; WORLD</span>
+            </header>
+            <div class="strand-body">
+              <p class="strand-intro">From scenes you watch to spaces you move through: generated as you explore, or built once and kept.</p>
+              <figure style="margin:0">
+                <div class="media">
+                  <a class="yt" href="https://www.youtube.com/watch?v=PDKhUknuQDg" data-yt="PDKhUknuQDg" target="_blank" rel="noopener" aria-label="Play Genie 3: Creating dynamic worlds that you can navigate in real-time, by Google DeepMind">
+                    <img src="https://i.ytimg.com/vi/PDKhUknuQDg/hqdefault.jpg" alt="" loading="lazy">
+                    <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5.5v13l10.5-6.5z"/></svg></span>
+                    <span class="yt-label">Google DeepMind &middot; Genie 3: creating dynamic worlds you can navigate in real time</span>
+                  </a>
+                </div>
+                <figcaption class="cap"><b>Genie 3</b><span>Google DeepMind</span><span>Aug 2025</span></figcaption>
+              </figure>
+              <p>Genie 3 generates a world from a text prompt in real time, at 720p and 24 frames per second, as you move through it, and keeps it consistent for several minutes. Text prompts can change the world on the way: the weather turns, a person appears. Since January 2026, Project Genie lets Google AI Ultra subscribers create such worlds and explore them for 60 seconds at a time.</p>
+
+              <figure style="margin:22px 0 0">
+                <div class="media">
+                  <a class="yt" href="https://www.youtube.com/watch?v=UslQB4LUueI" data-yt="UslQB4LUueI" target="_blank" rel="noopener" aria-label="Play Introducing Marble, by World Labs">
+                    <img src="https://i.ytimg.com/vi/UslQB4LUueI/hqdefault.jpg" alt="" loading="lazy">
+                    <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5.5v13l10.5-6.5z"/></svg></span>
+                    <span class="yt-label">World Labs &middot; Introducing Marble</span>
+                  </a>
+                </div>
+                <figcaption class="cap"><b>Marble</b><span>World Labs</span><span>Nov 2025</span></figcaption>
+              </figure>
+              <p>Marble builds persistent worlds from text, photos, video or a rough 3D layout. They can be edited and combined, then exported as Gaussian splats or meshes, for example into a game engine.</p>
+              <p class="note"><span class="label">For research</span>A world that keeps generating can respond to what a participant does, not only show what everyone should see.</p>
+
+              <h4>Also moving</h4>
+              <ul class="also">
+                <li><span class="meta">Tencent &middot; Apr 2026 &middot; open</span><b><a href="https://github.com/Tencent-Hunyuan/HY-World-2.0" target="_blank" rel="noopener">HY-World 2.0</a></b> generates or reconstructs editable 3D worlds from text, images or video, as meshes or Gaussian splats.</li>
+                <li><span class="meta">Meta Reality Labs &middot; Nov 2025 &middot; research</span><b><a href="https://www.meta.com/blog/worldgen-3d-world-generation-reality-labs-generative-ai-research/" target="_blank" rel="noopener">WorldGen</a></b> builds traversable, interactive 3D worlds from a single text prompt.</li>
+                <li><span class="meta">ByteDance &middot; 2026 &middot; not released</span><b><a href="https://technode.com/2026/09/08/bytedance-real-time-spatial-video-model-zhang-yiming/" target="_blank" rel="noopener">A real-time world model</a></b> built on Seedance and aimed at Pico headsets, reported in September and first shown in October 2026.</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 03 lab -->
+          <article class="strand strand-3 glass" aria-labelledby="s3-title">
+            <header class="strand-head">
+              <div>
+                <span class="strand-num">03</span>
+                <h3 id="s3-title">From model to stimulus</h3>
+              </div>
+              <span class="strand-mark">IN THE LAB</span>
+            </header>
+            <div class="strand-body">
+              <p class="strand-intro">A generated clip becomes a research stimulus only when it can be described, rebuilt and checked.</p>
+              <figure style="margin:0">
+                <a class="figure-link" href="https://ranranli.net/#Research" target="_blank" rel="noopener" aria-label="Open Ranran Li's research overview">
+                  <img src="assets/figures/scalable-immersion.webp" width="1200" height="715" loading="lazy" alt="Node canvas of AI-generated 360-degree scenes of an Irish pub: a reference image, image nodes and video segments linked by lines">
+                </a>
+                <figcaption class="cap"><b>Scalable Immersion</b><span>ongoing</span><span>an Irish pub scene, generated node by node</span></figcaption>
+              </figure>
+              <p>Scalable Immersion asks whether an AI-generated version of an established VR scenario can stand in for the filmed one. The scene is built in a node-based pipeline, from a reference image through image variations to video segments, and then compared with the original on how people experience it.</p>
+              <h4>What a generated stimulus needs</h4>
+              <ol class="checks">
+                <li>Its prompts, references, seeds and model version, kept with the data.</li>
+                <li>A check that the manipulated cue registers, and nothing else changed.</li>
+                <li>Measures of presence, perceived realism and emotional response against a captured benchmark.</li>
+                <li>Disclosure of what was generated, to participants and to readers.</li>
+              </ol>
+              <div class="links">
+                <a class="btn small" href="https://ranranli.net/#Research" target="_blank" rel="noopener">Research at ranranli.net &#8599;</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 Promise -->
+    <section id="promise" class="sec" aria-labelledby="promise-title">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="label">03 &middot; Promise</p>
+          <h2 id="promise-title" class="sec-title">What it could do for <em>behavioral science</em></h2>
+          <p class="sec-intro">Immersive scenarios already let researchers study behavior in situations that are hard to observe or to stage. Generating them changes what such studies can do.</p>
+        </header>
+
+        <div class="ledger glass">
+          <article class="ledger-item">
+            <span class="ledger-num">01</span>
+            <h3>Situations you cannot stage</h3>
+            <p>Violence, emergencies and places that do not exist yet are unethical, dangerous or impossible to film. Generated scenarios bring people into them and record how they respond.<span class="eg">A fight breaking out in a crowded bar, seen through a bystander's eyes.</span></p>
+          </article>
+          <article class="ledger-item">
+            <span class="ledger-num">02</span>
+            <h3>Control without giving up realism</h3>
+            <p>Experiments usually trade realism for control. A generated scene can hold everything constant and change a single cue: a gesture, a line of dialogue, the lighting.<span class="eg">The same pub, the same quarrel; only whether the victim calls for help changes.</span></p>
+          </article>
+          <article class="ledger-item">
+            <span class="ledger-num">03</span>
+            <h3>Many situations, not one</h3>
+            <p>A variant that once needed a new shoot now takes a new prompt. Studies can sample situations as carefully as they sample people, and adapt scenes across languages and cultures.<span class="eg">Fifty street encounters, drawn like items for a scale.</span></p>
+          </article>
+          <article class="ledger-item">
+            <span class="ledger-num">04</span>
+            <h3>Behavior, not only reports</h3>
+            <p>Inside a scenario people act rather than predict how they would act. Where they look, when they step in and which way they turn all become data.<span class="eg">Where people look in the seconds before they decide to intervene.</span></p>
+          </article>
+          <article class="ledger-item">
+            <span class="ledger-num">05</span>
+            <h3>Futures you can test</h3>
+            <p>Policies, technologies and places that do not exist yet can be generated and tried out before they are built, in the spirit of science fiction science.<span class="eg">A station where a camera can call the police, before such stations exist.</span></p>
+          </article>
+          <article class="ledger-item">
+            <span class="ledger-num">06</span>
+            <h3>Shared and rebuilt</h3>
+            <p>Prompts, references, seeds and model versions can travel with a paper, so that other labs can rebuild the stimulus, extend it and replicate the study.<span class="eg">A stimulus that ships with its recipe.</span></p>
+          </article>
+        </div>
+
+        <div class="caveat">
+          <div>
+            <p class="label">And what has to hold</p>
+            <h3>Generated is not yet valid.</h3>
+          </div>
+          <p>A generated scene still has to evoke the responses that matter, and generated content should be disclosed to participants and readers. Models also change fast, which puts reproducibility at risk. We treat these as research questions in their own right.</p>
+          <p class="refs">Background:
+            van Gelder et al. (2019), <a href="https://doi.org/10.1177/0022427818819696" target="_blank" rel="noopener">The virtual reality scenario method</a>, <i>Journal of Research in Crime and Delinquency</i> &middot;
+            Blascovich et al. (2002), <a href="https://vhil.stanford.edu/publications/immersive-virtual-environment-technology-methodological-tool-social-psychology" target="_blank" rel="noopener">Immersive virtual environment technology as a methodological tool for social psychology</a>, <i>Psychological Inquiry</i> &middot;
+            Francis et al. (2016), <a href="https://doi.org/10.1371/journal.pone.0164374" target="_blank" rel="noopener">Virtual morality: Transitioning from moral judgment to moral action?</a>, <i>PLOS ONE</i> &middot;
+            Rahwan, Shariff &amp; Bonnefon (2025), <a href="https://doi.org/10.1038/s41586-025-09194-6" target="_blank" rel="noopener">The science fiction science method</a>, <i>Nature</i>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 People -->
+    <section id="people" class="sec" aria-labelledby="people-title">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="label">04 &middot; People &amp; contact</p>
+          <h2 id="people-title" class="sec-title">Promoters</h2>
+          <p class="sec-intro">Write to us about collaborations, studies or talks.</p>
+        </header>
+
+        <div class="promoters">
+          <article class="contact glass-clear">
+            <h3 class="contact-name">Ranran Li</h3>
+            <p class="contact-role">Postdoctoral researcher</p>
+            <a class="contact-mail" href="mailto:r.li@csl.mpg.de">
+              <svg viewBox="0 0 38 30" aria-hidden="true"><rect x="1" y="1" width="36" height="28" rx="4.5" fill="#f1f5f9"/><path d="M3.5 4.5 19 16.2 34.5 4.5" fill="none" stroke="#2b2d63" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              r.li@csl.mpg.de
+            </a>
+            <div class="contact-aff">
+              <p>Department of Criminology</p>
+              <p>Max Planck Institute for the Study of Crime, Security, and Law</p>
+              <p class="soft">Freiburg im Breisgau, Germany</p>
+            </div>
+            <a class="contact-web" href="https://ranranli.net" target="_blank" rel="noopener">ranranli.net &#8599;</a>
+          </article>
+
+          <article class="contact glass-clear">
+            <h3 class="contact-name">Botao Amber Hu</h3>
+            <p class="contact-role">PhD candidate, Human Centred Computing</p>
+            <a class="contact-mail" href="mailto:botao.hu@cs.ox.ac.uk">
+              <svg viewBox="0 0 38 30" aria-hidden="true"><rect x="1" y="1" width="36" height="28" rx="4.5" fill="#f1f5f9"/><path d="M3.5 4.5 19 16.2 34.5 4.5" fill="none" stroke="#2b2d63" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              botao.hu@cs.ox.ac.uk
+            </a>
+            <div class="contact-aff">
+              <p>Department of Computer Science</p>
+              <p>University of Oxford</p>
+              <p class="soft">Director, Reality Design Lab</p>
+            </div>
+            <a class="contact-web" href="https://amber.botao.hu/" target="_blank" rel="noopener">amber.botao.hu &#8599;</a>
+          </article>
+        </div>
+
+        <div class="collab-head">
+          <h3>Collaborators</h3>
+        </div>
+        <div class="collabs">
+          <a class="collab glass-clear" href="https://www.mpg.de/13777765/crime-security-law-van-gelder" target="_blank" rel="noopener">
+            <b>Jean-Louis van Gelder</b>
+            <span>Max Planck Institute for the Study of Crime, Security and Law</span>
+          </a>
+          <a class="collab glass-clear" href="https://sites.cs.ucsb.edu/~sra/" target="_blank" rel="noopener">
+            <b>Misha Sra</b>
+            <span>University of California, Santa Barbara</span>
+          </a>
+          <div class="collab collab-tba">
+            <b>To be announced</b>
+            <span>The network is growing. Get in touch if you would like to join.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 Paper -->
+    <section id="paper" class="sec" aria-labelledby="paper-title">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="label">05 &middot; Paper</p>
+          <h2 id="paper-title" class="sec-title">Perspective paper</h2>
+        </header>
+        <div class="paper glass-clear">
+          <div class="tbc" aria-hidden="true">TBC</div>
+          <div>
+            <p class="label">Status &middot; in preparation</p>
+            <h3>Title to be confirmed</h3>
+            <p>A perspective paper on generative immersion for the behavioral sciences: the idea, its promise and the validity questions it raises. Authors and venue to be confirmed; the preprint will appear here.</p>
+          </div>
+          <a class="btn" href="https://ranranli.net/generative-immersion-journals/">Journal outlets &#8599;</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>Generative Immersion &middot; <span data-year>2026</span> &middot; Ranran Li &amp; Botao Amber Hu</span>
+    <nav aria-label="Footer">
+      <a href="AI-advances/">AI advances</a>
+      <a href="https://ranranli.net/generative-immersion-journals/">Journal outlets</a>
+      <a href="https://ranranli.net">ranranli.net</a>
+      <a href="https://github.com/catherineranran/generative-immersion">Source</a>
+    </nav>
+  </footer>
+
+  <script src="assets/site.js?v=1" defer></script>
+</body>
+</html>

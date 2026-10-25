@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>AI advances · Generative Immersion</title>
+  <meta name="description" content="Tracing the video, world and 3D models that change what immersive research can do, with links to the official sources.">
+  <link rel="canonical" href="https://www.generative-immersion.com/AI-advances/">
+  <meta name="theme-color" content="#2a2a62">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Generative Immersion">
+  <meta property="og:title" content="AI advances · Generative Immersion">
+  <meta property="og:description" content="Tracing the video, world and 3D models that change what immersive research can do.">
+  <meta property="og:url" content="https://www.generative-immersion.com/AI-advances/">
+  <meta property="og:image" content="https://www.generative-immersion.com/assets/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;650;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/site.css?v=1">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <filter id="lg-refraction" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.008 0.03" numOctaves="2" seed="7" result="noise"/>
+      <feGaussianBlur in="noise" stdDeviation="2" result="soft"/>
+      <feDisplacementMap in="SourceGraphic" in2="soft" scale="26" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </svg>
+
+  <div class="sky" aria-hidden="true">
+    <div class="sky-day"></div>
+    <div class="sky-veil"></div>
+  </div>
+
+  <div class="nav-wrap">
+    <nav class="nav" aria-label="Main">
+      <div class="nav-track">
+        <span class="nav-thumb" aria-hidden="true"></span>
+        <a class="nav-item nav-brand" href="../"><img src="../assets/favicon.svg" alt="" width="26" height="26"><span>Generative Immersion</span></a>
+        <span class="nav-sep" aria-hidden="true"></span>
+        <a class="nav-item" href="../#about">About</a>
+        <a class="nav-item" href="../#technology">Technology</a>
+        <a class="nav-item" href="../#promise">Promise</a>
+        <a class="nav-item" href="../#people">People</a>
+        <a class="nav-item" href="../#paper">Paper</a>
+        <span class="nav-sep" aria-hidden="true"></span>
+        <a class="nav-item" href="./" aria-current="page">AI advances</a>
+        <a class="nav-item" href="https://ranranli.net/generative-immersion-journals/">Journal outlets<span class="nav-ext" aria-hidden="true">&#8599;</span></a>
+      </div>
+    </nav>
+  </div>
+
+  <main id="main" class="wrap">
+    <section class="adv-hero glass" aria-labelledby="adv-title">
+      <div>
+        <p class="label">Tracing the models behind generative immersion</p>
+        <h1 id="adv-title">AI <em>advances</em></h1>
+        <p class="adv-sub">New video, world and 3D models that change what immersive research can do, each with a link to its official source. Added as they appear.</p>
+      </div>
+      <div class="adv-stats" id="advStats" aria-live="polite"></div>
+    </section>
+
+    <div class="chips" id="advKinds" role="group" aria-label="Filter by kind"></div>
+
+    <div class="adv-grid" id="advList" aria-live="polite">
+      <p class="adv-empty">Loading the list&hellip;</p>
+    </div>
+    <noscript><p class="adv-empty">This list needs JavaScript. The entries are also in <a href="items.json">items.json</a>.</p></noscript>
+
+    <p class="adv-foot" id="advFoot">Know a model that belongs here? Write to <a href="mailto:r.li@csl.mpg.de?subject=AI%20advances">Ranran</a> or <a href="mailto:botao.hu@cs.ox.ac.uk?subject=AI%20advances">Amber</a>.</p>
+  </main>
+
+  <footer class="foot">
+    <span>Generative Immersion &middot; <span data-year>2026</span> &middot; Ranran Li &amp; Botao Amber Hu</span>
+    <nav aria-label="Footer">
+      <a href="../">Home</a>
+      <a href="https://ranranli.net/generative-immersion-journals/">Journal outlets</a>
+      <a href="https://ranranli.net">ranranli.net</a>
+      <a href="https://github.com/catherineranran/generative-immersion">Source</a>
+    </nav>
+  </footer>
+
+  <script src="../assets/site.js?v=1" defer></script>
+  <script src="../assets/advances.js?v=1" defer></script>
+</body>
+</html>
