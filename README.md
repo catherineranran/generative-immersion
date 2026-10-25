@@ -1,7 +1,7 @@
 # Generative Immersion
 
 Website of the Generative Immersion initiative: AI-generated immersive situations as research instruments for the behavioral sciences.
-Live at **https://www.generative-immersion.com** (GitHub Pages, custom domain in `CNAME`).
+Live at **https://generative-immersion.com** (GitHub Pages, custom domain in `CNAME`; www redirects to it).
 
 Promoters: Ranran Li (Max Planck Institute for the Study of Crime, Security and Law) and Botao Amber Hu (University of Oxford).
 
@@ -9,7 +9,7 @@ Promoters: Ranran Li (Max Planck Institute for the Study of Crime, Security and 
 
 | Address | File | What it is |
 |---|---|---|
-| `/` | `index.html` | Main page: 01 About, 02 Technology, 03 Promise, 04 People & contact, 05 Paper |
+| `/` | `index.html` | Main page: 01 About, 02 Technology, 03 Ongoing research, 04 Promise, 05 People & contact, 06 Paper (with the journal outlets link beneath it) |
 | `/AI-advances/` | `AI-advances/index.html` + `items.json` | Picture-first cards tracing AI advances |
 | `/journals/` | `journals/index.html` | Forwards to the Generative Immersion Journal Atlas on ranranli.net |
 | any missing page | `404.html` | Glass "not found" page |
@@ -47,6 +47,10 @@ Add an object to `items` in `AI-advances/items.json` (newest dates show first):
 
 Update `"updated"` at the top of the file. Filter chips appear once there are two or more kinds.
 
+## Ongoing research cards
+
+Each project in `index.html` is an `article.project`: the figure on the left (`figure.project-fig`, `--fig` sets the colour around it), then label, title, subtitle, description and a `Related publications` list. Scalable Immersion uses `assets/figures/scalable-immersion.webp`; the Generative Enactments diagram is an inline SVG. On phones the figure moves above the text.
+
 ## Videos on the main page
 
 - Seedance 2.5 clips play straight from ByteDance Seed's official announcement (their CDN, `preload="none"` until the strand is near). If a clip ever stops loading, a link to the announcement replaces it.
@@ -64,4 +68,4 @@ DNS at Namecheap (Advanced DNS):
 | A | @ | 185.199.111.153 |
 | CNAME | www | catherineranran.github.io. |
 
-GitHub Pages serves from `main`, root folder, with the custom domain `www.generative-immersion.com`; the bare domain redirects to it. Pages can take up to 10 minutes to show a change.
+GitHub Pages serves from `main`, root folder, with the custom domain `generative-immersion.com` (the `CNAME` file); www redirects to it. Change the domain by editing `CNAME`, not by re-saving the field in Settings → Pages. Pages can take up to 10 minutes to show a change.

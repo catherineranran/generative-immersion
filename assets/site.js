@@ -181,8 +181,10 @@
       var s = wrap.querySelector('.strand');
       return s ? s.getBoundingClientRect().width + 18 : wrap.clientWidth * 0.8;
     }
+    var tools = document.querySelector('.board-tools');
     function state() {
       var max = wrap.scrollWidth - wrap.clientWidth;
+      if (tools) tools.classList.toggle('no-x', max <= 4);
       if (prev) prev.disabled = wrap.scrollLeft <= 4;
       if (next) next.disabled = wrap.scrollLeft >= max - 4;
     }
