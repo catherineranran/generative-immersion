@@ -238,7 +238,7 @@ section { scroll-margin-top: 84px; }
    -------------------------------------------------------------------------- */
 .hero {
   display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 40px 56px; align-items: end;
-  min-height: calc(100svh - 80px); padding: clamp(56px, 9vh, 110px) 0 clamp(40px, 7vh, 80px);
+  min-height: min(calc(100svh - 80px), 920px); padding: clamp(56px, 9vh, 110px) 0 clamp(40px, 7vh, 80px);
 }
 .hero-copy { position: relative; isolation: isolate; text-shadow: 0 2px 26px rgba(40, 20, 90, .35); }
 .hero-copy::before, .sec-head::before {

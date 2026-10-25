@@ -47,13 +47,13 @@
 
   var data = null, filter = 'all';
 
-  function card(it) {
+  function card(it, idx) {
     var k = KIND[kindOf(it)];
     var link = safeUrl(it.link);
     var d = parseDate(it.date);
     var img = it.img ? safeUrl(it.img) : '';
     var cover = img
-      ? '<img src="' + esc(img) + '" alt="' + esc(it.imgAlt || '') + '" loading="lazy" width="800" height="450">'
+      ? '<img src="' + esc(img) + '" alt="' + esc(it.imgAlt || '') + '" loading="' + (idx < 3 ? 'eager' : 'lazy') + '" width="800" height="450">'
       : '<div class="adv-tile"><span>' + esc(it.name) + '</span></div>';
     var extra = (it.links || []).map(function (l) {
       var u = safeUrl(l.url);
@@ -119,7 +119,7 @@
     renderChips(items);
     var shown = filter === 'all' ? items : items.filter(function (it) { return kindOf(it) === filter; });
     var list = $('#advList');
-    list.innerHTML = shown.length ? shown.map(card).join('') : '<p class="adv-empty">Nothing here yet.</p>';
+    list.innerHTML = shown.length ? shown.map(function (it, i) { return card(it, i); }).join('') : '<p class="adv-empty">Nothing here yet.</p>';
   }
 
   document.addEventListener('click', function (e) {
