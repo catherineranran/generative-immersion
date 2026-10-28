@@ -20,6 +20,7 @@
     code: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/></svg>',
     play: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></svg>',
     paper: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5V5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2zm0 0A2 2 0 0 0 6 22h12"/></svg>',
+    world: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>',
     form: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 3h6v3H9zM9 11h6M9 15h4"/></svg>',
     github: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.35 1.09 2.92.83.09-.65.35-1.09.64-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.93.36.31.68.92.68 1.86v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>',
     info: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>'
@@ -39,7 +40,9 @@
     } catch (e) { return ''; }
   }
   function parseDate(s) { var d = s ? new Date(s + 'T12:00:00') : null; return d && !isNaN(d) ? d : null; }
-  function fmtDate(d) { return d ? d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) : ''; }
+  var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  function fmtDate(d) { return d ? d.getDate() + ' ' + MONTHS[d.getMonth()] + ' ' + d.getFullYear() : ''; }
+  function fmtMonth(d) { return d ? MONTHS[d.getMonth()] + ' ' + d.getFullYear() : ''; }
   function kindOf(it) { return KIND[it.kind] ? it.kind : 'tool'; }
   function isNew(it) {
     var d = parseDate(it.added);
@@ -53,6 +56,8 @@
     var link = safeUrl(it.link);
     var d = parseDate(it.date);
     var img = it.img ? safeUrl(it.img) : '';
+    var rel = d ? '<time datetime="' + esc(it.date) + '">' + esc(fmtMonth(d)) + '</time>' : '';
+    var byline = it.org ? esc(it.org) + (rel ? ', released ' + rel : '') : (rel ? 'Released ' + rel : '');
     var cover = img
       ? '<img src="' + esc(img) + '" alt="' + esc(it.imgAlt || '') + '" loading="' + (idx < 3 ? 'eager' : 'lazy') + '" width="800" height="450">'
       : '<div class="adv-tile"><span>' + esc(it.name) + '</span></div>';
@@ -67,11 +72,9 @@
       '<div class="adv-body">' +
         '<div class="adv-top"><span class="adv-kind">' + esc(k.one) + '</span>' +
           (isNew(it) ? '<span class="adv-tag">New</span>' : '') +
-          '<span class="spacer"></span>' +
-          (d ? '<time class="adv-date" datetime="' + esc(it.date) + '">' + esc(fmtDate(d)) + '</time>' : '') +
         '</div>' +
         '<h2>' + (link ? '<a href="' + esc(link) + '" target="_blank" rel="noopener">' + esc(it.name) + '</a>' : esc(it.name)) + '</h2>' +
-        (it.org ? '<p class="adv-org">' + esc(it.org) + '</p>' : '') +
+        (byline ? '<p class="adv-org">' + byline + '</p>' : '') +
         (it.summary ? '<p class="adv-sum" title="' + esc(it.summary) + '">' + esc(it.summary) + '</p>' : '') +
         (it.why ? '<p class="adv-why"><span class="label">For research</span>' + esc(it.why) + '</p>' : '') +
         '<div class="adv-actions">' +
@@ -105,8 +108,8 @@
     var updated = parseDate(data && data.updated);
     var tiles = [
       ['Entries', items.length, items.length === 1 ? 'more to come' : 'and counting'],
-      ['Latest', dates[0] ? dates[0].toLocaleDateString('en-GB', { month: 'short', year: 'numeric' }) : '–', dates[0] ? fmtDate(dates[0]) : ''],
-      ['Updated', updated ? updated.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' }) : '–', Object.keys(kinds).length + (Object.keys(kinds).length === 1 ? ' kind' : ' kinds')]
+      ['Latest', dates[0] ? fmtMonth(dates[0]) : '–', dates[0] ? fmtDate(dates[0]) : ''],
+      ['Updated', updated ? updated.getDate() + ' ' + MONTHS[updated.getMonth()] : '–', Object.keys(kinds).length + (Object.keys(kinds).length === 1 ? ' kind' : ' kinds')]
     ];
     box.innerHTML = tiles.map(function (t) {
       return '<div class="adv-stat"><span>' + esc(t[0]) + '</span><b>' + esc(t[1]) + '</b><small>' + esc(t[2]) + '</small></div>';
