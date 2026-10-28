@@ -38,8 +38,8 @@ Add an object to `items` in `AI-advances/items.json` (newest dates show first):
   "why": "One line on why it matters for research.",
   "link": "https://official announcement",
   "linkLabel": "Announcement",
-  "links": [{ "label": "Model page", "url": "https://…", "icon": "page | code | play | paper | github" }],
-  "img": "img/short-id.webp (16:9, about 800×450; leave out for a colour tile with the name)",
+  "links": [{ "label": "Model page", "url": "https://…", "icon": "page | code | play | paper | github | form" }],
+  "img": "img/short-id.webp (16:9, about 800×450), or an official https picture such as a frame of the official YouTube video (https://i.ytimg.com/vi/<video id>/maxres1.jpg); leave out for a colour tile with the name",
   "imgAlt": "What the picture shows",
   "credit": "Where the picture comes from"
 }
@@ -55,7 +55,8 @@ Each project in between is an `article.project`: the figure on the left (`figure
 ## Videos on the main page
 
 - Seedance 2.5 clips play straight from ByteDance Seed's official announcement (their CDN, `preload="none"` until the strand is near). If a clip ever stops loading, a link to the announcement replaces it.
-- Genie 3 (Google DeepMind) and Marble (World Labs) are YouTube videos from the official channels. The page shows a still and loads the player (youtube-nocookie.com) only when clicked. To swap one, change `href`, `data-yt` and the `img` in `index.html`.
+- Genie 4 (Google DeepMind, `sFfPkUJd_Jk`) and Marble (World Labs, `UslQB4LUueI`) are YouTube videos from the official channels. The page shows a still and loads the player (youtube-nocookie.com) only when clicked. To swap one, change `href`, `data-yt` and the `img` in `index.html`.
+- ByteDance's world model has been shown on stage but not released, so it sits in a dashed "not released yet" box (`.pending`) in the World generation strand, with links to the reports. Swap in a video once ByteDance publishes one.
 
 ## Domain
 

@@ -1,6 +1,26 @@
 {
-  "updated": "2026-10-25",
+  "updated": "2026-10-28",
   "items": [
+    {
+      "id": "genie-4",
+      "name": "Genie 4",
+      "org": "Google DeepMind",
+      "kind": "world",
+      "date": "2026-10-27",
+      "added": "2026-10-28",
+      "summary": "Generates worlds from text or an image in real time, now with sound and dialogue. Typed instructions change the weather, the camera or who is in the scene as you explore.",
+      "why": "A participant can act inside a scene that keeps responding, instead of watching a fixed clip.",
+      "link": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+      "linkLabel": "Announcement",
+      "links": [
+        { "label": "Model page", "url": "https://deepmind.google/models/genie/", "icon": "page" },
+        { "label": "Watch the video", "url": "https://www.youtube.com/watch?v=sFfPkUJd_Jk", "icon": "play" },
+        { "label": "Join the waitlist (research preview)", "url": "https://forms.gle/WQnSNEM3omF7Uruu7", "icon": "form" }
+      ],
+      "img": "https://i.ytimg.com/vi/sFfPkUJd_Jk/maxres1.jpg",
+      "imgAlt": "Frame from Google DeepMind's Genie 4 video: a crowned crane walks across snow while a text prompt is typed into the world, with the W A S D keys shown",
+      "credit": "Picture: frame from Google DeepMind's official Genie 4 video on YouTube"
+    },
     {
       "id": "seedance-2-5",
       "name": "Seedance 2.5",
