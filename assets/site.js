@@ -236,10 +236,13 @@
       var id = a.getAttribute('data-yt');
       var img = a.querySelector('img');
       if (img) img.addEventListener('error', function () { img.style.visibility = 'hidden'; });
-      // use the large still when YouTube has one (a missing one comes back as a 120px placeholder)
-      var big = new Image();
-      big.onload = function () { if (big.naturalWidth > 200 && img) img.src = big.src; };
-      big.src = 'https://i.ytimg.com/vi/' + id + '/maxresdefault.jpg';
+      // use the large still when YouTube has one (a missing one comes back as a 120px placeholder),
+      // unless the link brings its own still (data-still), e.g. a frame without a title card
+      if (!a.hasAttribute('data-still')) {
+        var big = new Image();
+        big.onload = function () { if (big.naturalWidth > 200 && img) img.src = big.src; };
+        big.src = 'https://i.ytimg.com/vi/' + id + '/maxresdefault.jpg';
+      }
       a.addEventListener('click', function (e) {
         if (e.metaKey || e.ctrlKey || e.shiftKey || e.button > 0) return;
         e.preventDefault();
