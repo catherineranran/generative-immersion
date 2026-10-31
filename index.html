@@ -22,7 +22,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;650;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/site.css?v=12">
+  <link rel="stylesheet" href="assets/site.css?v=13">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -108,7 +108,14 @@
         <header class="sec-head">
           <p class="label">02 &middot; Technology</p>
           <h2 id="tech-title" class="sec-title">What the models <em>make now</em></h2>
-          <p class="sec-intro">Three lines of development meet here. Video models hold a scene together over long continuous shots, with sound. Real-time world models generate a space as you move through it. 3D world models build one that can be kept and shown again.</p>
+          <div class="sec-intro">
+            <p>Three lines of development meet here.</p>
+            <ol class="intro-lines">
+              <li><span class="k1">01</span>Video models hold a scene together over long continuous shots, with sound.</li>
+              <li><span class="k2">02</span>Real-time world models generate a space as you move through it.</li>
+              <li><span class="k3">03</span>3D world models build one that can be kept and shown again.</li>
+            </ol>
+          </div>
         </header>
         <div class="board-tools">
           <p class="board-hint"><span class="hint-x"><svg viewBox="0 0 30 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 6h28M5 2 1 6l4 4M25 2l4 4-4 4"/></svg>Scroll sideways through the strands, and down within each one.</span><span class="hint-y"><svg viewBox="0 0 12 30" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 1v28M2 25l4 4 4-4"/></svg>Scroll down within each strand.</span></p>
@@ -134,16 +141,15 @@
               </div>
             </header>
             <div class="strand-body">
-              <p class="strand-intro">The same people, the same place and synchronized sound, held together across long continuous shots.</p>
+              <p class="strand-intro">The same people, place and sound, held together across long shots.</p>
               <figure style="margin:0">
                 <div class="media">
                   <video controls playsinline preload="none" data-fallback="https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5" data-src="https://lf3-static.bytednsdoc.com/obj/eden-cn/lapzild-tss/ljhwZthlaukjlkulzlp/user-upload/4xfa4ms8egv8p.mp4#t=0.6" aria-label="Seedance 2.5 demo: one 30-second take that follows a singer from her dressing room to the stage"></video>
                 </div>
                 <figcaption class="cap"><b>Seedance 2.5</b><span>ByteDance Seed</span><span>Jul 2026</span><span>one 30-second take from a text prompt, with sound</span></figcaption>
               </figure>
-              <p>Seedance 2.5 generates up to 30 seconds of video and sound in a single pass, and extends a scene round after round while keeping its characters and setting. It can draw on up to 30 images, 10 video clips and 10 audio clips at once, and on untextured 3D renders that fix the blocking and the camera path.</p>
-              <p>Edits can target a single timestamp, the camera move or a green-screen background, while the rest of the scene stays as it was.</p>
-              <p class="note"><span class="label">For research</span>Keeping everything constant while one element changes is the logic of an experimental manipulation.</p>
+              <p>Seedance 2.5 makes up to 30 seconds of video with sound in one pass, and extends a scene with the same characters. It can follow up to 30 images, 10 clips and 10 sound files, or a rough 3D layout for camera and blocking. Edits can change one moment and leave the rest as it was.</p>
+              <p class="note"><span class="label">For research</span>Everything stays constant while one element changes: an experimental manipulation.</p>
 
               <h4>More from the same release</h4>
               <div class="mini-grid">
@@ -176,7 +182,7 @@
               </div>
             </header>
             <div class="strand-body">
-              <p class="strand-intro">Worlds generated frame by frame as people move and act in them, so the scene can respond.</p>
+              <p class="strand-intro">Generated frame by frame as people move and act, so the scene can respond.</p>
               <figure style="margin:0">
                 <div class="media">
                   <a class="yt" href="https://www.youtube.com/watch?v=sFfPkUJd_Jk" data-yt="sFfPkUJd_Jk" data-still target="_blank" rel="noopener" aria-label="Play Genie 4: A new generation of world simulation, by Google DeepMind">
@@ -187,8 +193,7 @@
                 </div>
                 <figcaption class="cap"><b>Genie 4</b><span>Google DeepMind</span><span>Oct 2026</span><span>research preview</span></figcaption>
               </figure>
-              <p>Genie 4 turns a text prompt or an image into a world that keeps generating in real time as you move through it with the keyboard, now with its own sound: ambient noise, music and dialogue. Typed instructions change the world while it runs, from the weather and the camera to people walking in, and Gemini models plan the events so that cause and effect stay plausible.</p>
-              <p>It follows Genie 3 (August 2025), which Google AI Ultra subscribers have been able to explore in Project Genie since January 2026. Genie 4 is a research preview for trusted testers for now and is coming to Project Genie and to early-access partners of the Gemini API. Details can still drift over long sessions, and all generated video and audio carry a SynthID watermark.</p>
+              <p>Genie 4 turns a prompt or an image into a world that keeps generating as you move through it, now with sound and dialogue. Typed instructions change the weather, the camera or who walks in. A research preview for now, coming to Project Genie; details can still drift in long sessions.</p>
               <div class="links">
                 <a class="btn small" href="https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/" target="_blank" rel="noopener">Announcement &#8599;</a>
                 <a class="btn small" href="https://deepmind.google/models/genie/" target="_blank" rel="noopener">Model page &#8599;</a>
@@ -197,19 +202,18 @@
               <div class="pending">
                 <span class="meta">ByteDance &middot; shown Oct 2026 &middot; not released yet</span>
                 <b class="pending-title">ByteDance&rsquo;s world model</b>
-                <p>ByteDance showed a real-time world model of its own on stage at a Douyin gala in October. One sentence became a room seen from a tiny person&rsquo;s height, explored with keyboard and mouse; asking for a spoon next to a cup produced one at once, and a door joined the room to outer space. Other demos simulated street traffic for self-driving cars and a home for training robots.</p>
-                <p>ByteDance has not yet named it or said when it will be released. In September, Bloomberg reported that ByteDance was building a real-time world model on Seedance, running at about 20 frames per second in the cloud and aimed at Pico headsets.</p>
+                <p>Shown on stage at a Douyin gala: one sentence became a room to explore with keyboard and mouse, a spoken request added a spoon, and a door led to outer space. No name or release date yet; Bloomberg reported a world model built on Seedance, aimed at Pico headsets.</p>
                 <div class="links">
                   <a class="btn small" href="https://www.qbitai.com/2026/10/502701.html" target="_blank" rel="noopener">Stage demo, QbitAI (Chinese) &#8599;</a>
                   <a class="btn small" href="https://technode.com/2026/09/08/bytedance-real-time-spatial-video-model-zhang-yiming/" target="_blank" rel="noopener">Bloomberg, via TechNode &#8599;</a>
                 </div>
               </div>
 
-              <p class="note"><span class="label">For research</span>A world that keeps generating can respond to what a participant does, not only show what everyone should see.</p>
+              <p class="note"><span class="label">For research</span>The scene can respond to what a participant does.</p>
 
               <h4>Also moving</h4>
               <ul class="also">
-                <li><span class="meta">PixVerse &middot; Sep 2026 &middot; try online</span><b><a href="https://pixverse.ai/en/blog/pixverse-introduces-r2-real-time-world-model" target="_blank" rel="noopener">PixVerse R2</a></b> generates a world and its sound in real time as you move with the keyboard, takes text, pictures or audio mid-session, and remembers what happened earlier in the session.</li>
+                <li><span class="meta">PixVerse &middot; Sep 2026 &middot; try online</span><b><a href="https://pixverse.ai/en/blog/pixverse-introduces-r2-real-time-world-model" target="_blank" rel="noopener">PixVerse R2</a></b> generates a real-time world with sound that remembers what happened in a session.</li>
               </ul>
             </div>
           </article>
@@ -223,7 +227,7 @@
               </div>
             </header>
             <div class="strand-body">
-              <p class="strand-intro">Lasting 3D scenes and props, built once and kept: the same world for every participant, in a headset.</p>
+              <p class="strand-intro">Scenes and props built once and kept: the same world for everyone, in a headset.</p>
               <figure style="margin:0">
                 <div class="media">
                   <a class="yt" href="https://www.youtube.com/watch?v=UslQB4LUueI" data-yt="UslQB4LUueI" target="_blank" rel="noopener" aria-label="Play Introducing Marble, by World Labs">
@@ -234,20 +238,19 @@
                 </div>
                 <figcaption class="cap"><b>Marble</b><span>World Labs</span><span>Nov 2025</span></figcaption>
               </figure>
-              <p>Marble builds persistent worlds from text, photos, video or a rough 3D layout. They can be edited, expanded and combined, then exported as Gaussian splats, meshes or 360&deg; panoramas, for example into a game engine or a headset.</p>
-              <p>Atlas, World Labs&rsquo; new world model (September 2026, early access), will power future versions of Marble. World Labs has since agreed to join AMD.</p>
+              <p>Marble builds lasting worlds from text, photos, video or a rough layout, to edit and combine, then export as Gaussian splats, meshes or 360&deg; panoramas. Its next versions will run on Atlas, World Labs&rsquo; new world model.</p>
               <div class="links">
                 <a class="btn small" href="https://www.worldlabs.ai/blog/marble-world-model" target="_blank" rel="noopener">Announcement &#8599;</a>
                 <a class="btn small" href="https://marble.worldlabs.ai" target="_blank" rel="noopener">Open Marble &#8599;</a>
               </div>
-              <p class="note"><span class="label">For research</span>One saved scene can be shown to every participant in exactly the same way, and the same props can be swapped between conditions.</p>
+              <p class="note"><span class="label">For research</span>One saved scene for every participant; props can be swapped between conditions.</p>
 
               <h4>Also moving</h4>
               <ul class="also">
-                <li><span class="meta">World Labs &middot; Sep 2026 &middot; early access</span><b><a href="https://www.worldlabs.ai/blog/atlas" target="_blank" rel="noopener">Atlas</a></b> makes camera-controlled video up to a minute long, 360&deg; panoramas and 3D scenes as Gaussian splats, from text, images or video.</li>
-                <li><span class="meta">Tencent &middot; Apr 2026 &middot; open</span><b><a href="https://github.com/Tencent-Hunyuan/HY-World-2.0" target="_blank" rel="noopener">HY-World 2.0</a></b> generates or reconstructs editable 3D worlds from text, images or video, as meshes or Gaussian splats.</li>
-                <li><span class="meta">Meshy &middot; Aug 2026 &middot; 3D objects</span><b><a href="https://www.meshy.ai/blog/meshy-7-image-to-3d-geometry-alignment" target="_blank" rel="noopener">Meshy 7</a></b> turns a single picture into a textured 3D model whose shape closely follows the picture.</li>
-                <li><span class="meta">Meta Reality Labs &middot; Nov 2025 &middot; research</span><b><a href="https://www.meta.com/blog/worldgen-3d-world-generation-reality-labs-generative-ai-research/" target="_blank" rel="noopener">WorldGen</a></b> builds traversable, interactive 3D worlds from a single text prompt.</li>
+                <li><span class="meta">World Labs &middot; Sep 2026 &middot; early access</span><b><a href="https://www.worldlabs.ai/blog/atlas" target="_blank" rel="noopener">Atlas</a></b> makes video, panoramas and Gaussian-splat scenes from text, images or video.</li>
+                <li><span class="meta">Tencent &middot; Apr 2026 &middot; open</span><b><a href="https://github.com/Tencent-Hunyuan/HY-World-2.0" target="_blank" rel="noopener">HY-World 2.0</a></b> makes or rebuilds editable 3D worlds, as meshes or splats.</li>
+                <li><span class="meta">Meshy &middot; Aug 2026 &middot; 3D objects</span><b><a href="https://www.meshy.ai/blog/meshy-7-image-to-3d-geometry-alignment" target="_blank" rel="noopener">Meshy 7</a></b> turns one picture into a textured 3D model.</li>
+                <li><span class="meta">Meta Reality Labs &middot; Nov 2025 &middot; research</span><b><a href="https://www.meta.com/blog/worldgen-3d-world-generation-reality-labs-generative-ai-research/" target="_blank" rel="noopener">WorldGen</a></b> builds walkable 3D worlds from one text prompt.</li>
               </ul>
             </div>
           </article>
