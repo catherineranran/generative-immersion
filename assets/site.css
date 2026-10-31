@@ -523,27 +523,30 @@ section { scroll-margin-top: 84px; }
    AI advances (/AI-advances/): five horizontal strands on the dusk sky,
    like the Exhibition page on ranranli.net with its columns turned on their side
    -------------------------------------------------------------------------- */
+/* the page is as wide as three cards in a strand, so the hero, the strand links and the strands share one edge */
+.adv-page { --adv-card: 300px; --adv-gap: 12px; --adv-pad: 14px; --wrap: calc(3 * var(--adv-card) + 2 * var(--adv-gap) + 2 * var(--adv-pad) + 2px); }
+
 .adv-hero { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 24px 40px; align-items: end; margin-top: clamp(40px, 7vh, 80px); padding: 30px 34px; border-radius: 30px; }
 .adv-hero h1 { margin: 10px 0 0; font: 650 clamp(2.6rem, 6vw, 4.6rem)/.98 var(--sans); letter-spacing: -.045em; }
 .adv-hero h1 em { font: italic 400 1.05em/1 var(--serif); letter-spacing: -.02em; }
 .adv-sub { margin: 14px 0 0; max-width: 34rem; color: var(--ink-2); }
 .adv-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
-.adv-stat { display: grid; gap: 2px; min-width: 0; padding: 12px 14px; border-radius: 16px; background: rgba(255, 255, 255, .08); border: 1px solid var(--line-2); }
+.adv-stat { display: grid; gap: 2px; min-width: 0; padding: 12px 12px; border-radius: 16px; background: rgba(255, 255, 255, .08); border: 1px solid var(--line-2); }
 .adv-stat span { font: 500 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.adv-stat b { font-size: 24px; font-weight: 650; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.adv-stat b { font-size: 20px; font-weight: 650; letter-spacing: -.02em; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .adv-stat small { font-size: 12px; color: var(--muted); }
 
 /* links to the five strands */
-.adv-jump { display: flex; flex-wrap: wrap; gap: 8px; margin: 26px 0 0; }
+.adv-jump { display: flex; flex-wrap: wrap; gap: 6px; margin: 22px 0 0; }
 .chip {
-  display: inline-flex; align-items: center; gap: 7px; min-height: 36px; padding: 6px 14px; border-radius: 999px;
-  border: 1px solid var(--line); background: var(--glass); color: #fff; font-size: 14px; font-weight: 600; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 5px 12px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--glass); color: #fff; font-size: 13.5px; font-weight: 600; text-decoration: none;
   -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur); transition: background .2s;
 }
 .chip:hover { background: var(--glass-3); }
 .chip i { width: 9px; height: 9px; border-radius: 50%; background: var(--k, #fff); }
 .chip .n { font-variant-numeric: tabular-nums; opacity: .7; }
-.adv-hint { margin: 12px 0 14px; font-size: 13.5px; }
+.adv-hint { margin: 14px 0; text-align: center; font: italic 400 14px/1.4 var(--serif); color: #fff; text-shadow: 0 0 2px rgba(20, 16, 60, .6), 0 1px 3px rgba(20, 16, 60, .5), 0 0 18px rgba(30, 20, 80, .55); }
 
 /* each strand is a pane of glass (.glass) with a header and a row of cards, like a column on the Exhibition page turned on its side */
 .adv-strands { display: grid; gap: 18px; }
@@ -564,8 +567,8 @@ section { scroll-margin-top: 84px; }
 .adv-strand-nav .icon-btn svg { width: 16px; height: 16px; }
 .adv-strand.no-x .adv-strand-nav { display: none; }
 .adv-row {
-  display: flex; align-items: stretch; gap: 12px; padding: 12px 14px 14px;
-  overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-padding: 0 14px;
+  display: flex; align-items: stretch; gap: var(--adv-gap, 12px); padding: 12px var(--adv-pad, 14px) 14px;
+  overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-padding: 0 var(--adv-pad, 14px);
   scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, .25) transparent;
 }
 .adv-row:focus-visible { outline: 2px solid rgba(255, 255, 255, .7); outline-offset: -3px; border-radius: 0 0 24px 24px; }
@@ -573,7 +576,7 @@ section { scroll-margin-top: 84px; }
 
 /* cards: clear glass notes resting on the strand, as on the Exhibition page */
 .adv-card {
-  position: relative; display: flex; flex-direction: column; flex: 0 0 clamp(262px, 23vw, 300px); min-width: 0; overflow: hidden; scroll-snap-align: start;
+  position: relative; display: flex; flex-direction: column; flex: 0 0 var(--adv-card, 300px); min-width: 0; overflow: hidden; scroll-snap-align: start;
   border-radius: 16px; border: 1px solid rgba(255, 255, 255, .13); border-top-color: rgba(255, 255, 255, .26);
   background: linear-gradient(180deg, rgba(255, 255, 255, .065), rgba(255, 255, 255, .02));
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, .18), 0 6px 18px rgba(5, 10, 25, .1);
@@ -653,6 +656,7 @@ section { scroll-margin-top: 84px; }
   .outlets-go { display: none; }
   .tbc { width: 92px; height: 92px; font-size: 13px; }
   .adv-hero { padding: 24px 22px; }
+  .chip { min-height: 30px; padding: 4px 10px; font-size: 13px; }
   .adv-strand-head { gap: 10px; padding: 13px 14px 12px; }
   .adv-strand-nav { display: none; }
   .adv-row { gap: 12px; padding: 12px; scroll-padding: 0 12px; }
