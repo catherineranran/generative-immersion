@@ -9,7 +9,7 @@ Promoters: Ranran Li (Max Planck Institute for the Study of Crime, Security and 
 
 | Address | File | What it is |
 |---|---|---|
-| `/` | `index.html` | Main page: 01 About, 02 Technology, 03 Ongoing research (perspective paper, two studies, journal outlets link), 04 Promise, 05 People & connect |
+| `/` | `index.html` | Main page: 01 About, 02 Technology (three strands side by side: Video models, Real-time world models, 3D worlds & objects, and a Follow AI advances button), 03 Ongoing research (perspective paper, two studies, journal outlets link), 04 Promise, 05 People & connect |
 | `/AI-advances/` | `AI-advances/index.html` + `items.json` | AI advances in five horizontal strands (like the Exhibition page on ranranli.net, turned on its side), under the night sky |
 | `/journals/` | `journals/index.html` | Forwards to the Generative Immersion Journal Atlas on ranranli.net |
 | any missing page | `404.html` | Glass "not found" page |

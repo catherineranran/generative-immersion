@@ -296,7 +296,7 @@ section { scroll-margin-top: 84px; }
 .icon-btn svg { width: 18px; height: 18px; }
 
 .board-wrap {
-  --col: calc((min(100vw - 36px, var(--wrap)) - 18px) / 2);
+  --col: calc((min(100vw - 36px, var(--wrap)) - 2 * 18px) / 3);   /* three strands side by side */
   --colh: min(82vh, 52rem);
   overflow-x: auto; overflow-y: hidden;
   padding: 14px var(--gutter) 30px;
