@@ -272,7 +272,8 @@ section { scroll-margin-top: 84px; }
 /* --------------------------------------------------------------------------
    02 Technology: horizontally scrolling strands (as in ranranli.net's research)
    -------------------------------------------------------------------------- */
-.board-tools { display: flex; align-items: center; gap: 10px; margin: -10px 0 4px; }
+.board-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: -10px 0 4px; }
+.board-tools .follow { margin-left: auto; }
 .board-hint {
   display: inline-flex; align-items: center; gap: 10px; margin: 0 auto 0 0; padding: 9px 16px; border-radius: 999px;
   font-size: 14px; color: #fff; background: var(--glass); border: 1px solid var(--line); box-shadow: var(--edge);
@@ -519,8 +520,11 @@ section { scroll-margin-top: 84px; }
 .foot a:hover { color: #fff; text-decoration: underline; }
 
 /* --------------------------------------------------------------------------
-   AI advances (/AI-advances/): picture-first cards, as on the launch pad
+   AI advances (/AI-advances/): five horizontal strands under the night sky,
+   like the Exhibition page on ranranli.net with its columns turned on their side
    -------------------------------------------------------------------------- */
+:root[data-night] { --night: 1; }
+
 .adv-hero { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 24px 40px; align-items: end; margin-top: clamp(40px, 7vh, 80px); padding: 30px 34px; border-radius: 30px; }
 .adv-hero h1 { margin: 10px 0 0; font: 650 clamp(2.6rem, 6vw, 4.6rem)/.98 var(--sans); letter-spacing: -.045em; }
 .adv-hero h1 em { font: italic 400 1.05em/1 var(--serif); letter-spacing: -.02em; }
@@ -531,26 +535,60 @@ section { scroll-margin-top: 84px; }
 .adv-stat b { font-size: 24px; font-weight: 650; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
 .adv-stat small { font-size: 12px; color: var(--muted); }
 
-.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 26px 0 18px; }
+/* links to the five strands */
+.adv-jump { display: flex; flex-wrap: wrap; gap: 8px; margin: 26px 0 0; }
 .chip {
-  display: inline-flex; align-items: center; gap: 7px; min-height: 36px; padding: 6px 14px; border-radius: 999px; cursor: pointer;
-  border: 1px solid var(--line); background: var(--glass); color: #fff; font-size: 14px; font-weight: 600;
-  -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur);
+  display: inline-flex; align-items: center; gap: 7px; min-height: 36px; padding: 6px 14px; border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, .16); background: rgba(255, 255, 255, .07); color: #fff; font-size: 14px; font-weight: 600; text-decoration: none;
+  transition: background .2s;
 }
+.chip:hover { background: rgba(255, 255, 255, .16); }
 .chip i { width: 9px; height: 9px; border-radius: 50%; background: var(--k, #fff); }
-.chip[aria-pressed="true"] { background: rgba(255, 255, 255, .92); color: var(--accent-ink); border-color: transparent; }
 .chip .n { font-variant-numeric: tabular-nums; opacity: .7; }
+.adv-hint { margin: 14px 0 16px; font-size: 13.5px; color: rgba(203, 213, 225, .78); }
 
-.adv-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 18px; align-items: stretch; }
-.adv-card {
-  position: relative; display: flex; flex-direction: column; min-width: 0; overflow: hidden;
-  border-radius: 20px; background: var(--glass-deep);
-  -webkit-backdrop-filter: var(--blur); backdrop-filter: var(--blur);
-  border: 1px solid var(--line); box-shadow: var(--edge), var(--shadow);
-  transition: transform .2s, box-shadow .2s;
+/* each strand is a pane of clear glass, like a column on the Exhibition page */
+.adv-strands { display: grid; gap: 22px; }
+.adv-strand {
+  position: relative; min-width: 0; scroll-margin-top: 96px;
+  border: 1px solid rgba(255, 255, 255, .12); border-top-color: rgba(255, 255, 255, .24); border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, .05), rgba(255, 255, 255, .015) 40%, rgba(255, 255, 255, 0)), rgba(16, 22, 46, .08);
+  -webkit-backdrop-filter: blur(1px) saturate(140%); backdrop-filter: blur(1px) saturate(140%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .38), inset 0 -1px 1px rgba(255, 255, 255, .04), 0 22px 50px rgba(5, 10, 25, .18);
 }
-.adv-card:hover { transform: translateY(-2px); box-shadow: var(--edge), 0 18px 40px rgba(16, 12, 48, .34); }
-.adv-cover { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; text-decoration: none; background: rgba(255, 255, 255, .06); border-bottom: 1px solid var(--line-2); }
+.adv-strand-head { display: flex; align-items: center; gap: 14px; padding: 15px 18px 14px; border-bottom: 1px solid rgba(255, 255, 255, .09); }
+.adv-strand-num { align-self: flex-start; padding-top: 5px; font: 500 12px/1 var(--mono); letter-spacing: .12em; color: var(--k); }
+.adv-strand-titles { flex: 1; min-width: 0; }
+.adv-strand-titles h2 { margin: 0; font: 650 19px/1.25 var(--sans); letter-spacing: -.015em; color: #f8fafc; text-shadow: 0 1px 2px rgba(8, 14, 30, .4); }
+.adv-strand-titles p { margin: 3px 0 0; font-size: 13.5px; line-height: 1.45; color: rgba(203, 213, 225, .85); }
+/* the count sits in a small white pill, as on the Exhibition page */
+.adv-count {
+  min-width: 2rem; padding: 3px 10px; border-radius: 999px; text-align: center;
+  background: linear-gradient(180deg, #fff, #eef2f8); color: #0f172a; font-size: 12.5px; font-weight: 650; font-variant-numeric: tabular-nums;
+  box-shadow: 0 4px 12px rgba(8, 14, 30, .28), inset 0 -1px 2px rgba(15, 23, 42, .08);
+}
+.adv-strand-nav { display: flex; gap: 6px; }
+.adv-strand-nav .icon-btn { width: 34px; height: 34px; }
+.adv-strand-nav .icon-btn svg { width: 16px; height: 16px; }
+.adv-strand.no-x .adv-strand-nav { display: none; }
+.adv-row {
+  display: flex; align-items: stretch; gap: 14px; padding: 16px;
+  overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-padding: 0 16px;
+  scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, .25) transparent;
+}
+.adv-row:focus-visible { outline: 2px solid rgba(255, 255, 255, .7); outline-offset: -3px; border-radius: 0 0 24px 24px; }
+.adv-row-empty { flex: 1; margin: 0; padding: 26px 18px; border: 1px dashed rgba(255, 255, 255, .32); border-radius: 16px; text-align: center; font: italic 400 16px/1.45 var(--serif); color: rgba(226, 232, 240, .82); }
+
+/* cards: clear glass notes resting on the strand, as on the Exhibition page */
+.adv-card {
+  position: relative; display: flex; flex-direction: column; flex: 0 0 clamp(262px, 23vw, 300px); min-width: 0; overflow: hidden; scroll-snap-align: start;
+  border-radius: 16px; border: 1px solid rgba(255, 255, 255, .13); border-top-color: rgba(255, 255, 255, .26);
+  background: linear-gradient(180deg, rgba(255, 255, 255, .065), rgba(255, 255, 255, .02));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .18), 0 6px 18px rgba(5, 10, 25, .1);
+  color: #e8edf6; transition: background .2s, transform .3s var(--ease);
+}
+.adv-card:hover { background: linear-gradient(180deg, rgba(255, 255, 255, .1), rgba(255, 255, 255, .035)); transform: translateY(-1px); }
+.adv-cover { position: relative; display: block; aspect-ratio: 16 / 9; overflow: hidden; text-decoration: none; background: rgba(255, 255, 255, .06); border-bottom: 1px solid rgba(255, 255, 255, .1); }
 .adv-cover img { width: 100%; height: 100%; object-fit: cover; color: transparent; transition: transform .45s var(--ease); }
 .adv-card:hover .adv-cover img { transform: scale(1.035); }
 .adv-tile {
@@ -562,19 +600,19 @@ section { scroll-margin-top: 84px; }
 .adv-tile span { font: 700 clamp(22px, 2.4vw, 30px)/1.05 var(--sans); letter-spacing: -.03em; color: #fff; text-align: center; text-shadow: 0 2px 18px rgba(0, 0, 0, .28); }
 .adv-body { display: flex; flex-direction: column; gap: 7px; flex: 1; padding: 13px 16px 14px; }
 .adv-top { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
-.adv-kind { font: 500 10.5px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: #10243a; background: var(--k); border-radius: 999px; padding: 4px 9px 3px; }
 .adv-tag { font: 500 10.5px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; border-radius: 999px; padding: 4px 8px 3px; background: rgba(255, 255, 255, .92); color: var(--accent-ink); }
-.adv-card h2 { margin: 0; font: 650 19px/1.25 var(--sans); letter-spacing: -.015em; }
-.adv-card h2 a { color: inherit; text-decoration: none; }
-.adv-card h2 a:hover { text-decoration: underline; }
-.adv-org { margin: -4px 0 0; font-size: 13.5px; color: var(--muted); }
+.adv-status { font: 500 10.5px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; border-radius: 999px; padding: 3px 8px 2px; border: 1px solid var(--k); color: var(--k); }
+.adv-card h3 { margin: 0; font: 650 18px/1.25 var(--sans); letter-spacing: -.015em; color: #fff; }
+.adv-card h3 a { color: inherit; text-decoration: none; }
+.adv-card h3 a:hover { text-decoration: underline; }
+.adv-org { margin: -4px 0 0; font-size: 13.5px; color: rgba(203, 213, 225, .82); }
 .adv-sum { margin: 0; font-size: 14px; line-height: 1.55; color: var(--ink-2); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-.adv-why { margin: 2px 0 0; padding: 8px 11px; border-radius: 0 10px 10px 0; border-left: 2px solid var(--k); background: rgba(255, 255, 255, .07); font-size: 13.5px; line-height: 1.5; }
+.adv-why { margin: 2px 0 0; padding: 8px 11px; border-radius: 0 10px 10px 0; border-left: 2px solid var(--k); background: rgba(255, 255, 255, .06); font-size: 13.5px; line-height: 1.5; }
 .adv-why .label { display: block; margin-bottom: 2px; font-size: 10.5px; color: var(--k); }
 .adv-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: auto; padding-top: 6px; }
 .adv-actions .spacer { flex: 1; }
-.adv-actions .icon-btn { width: 34px; height: 34px; background: transparent; border-color: transparent; box-shadow: none; color: var(--muted); }
-.adv-actions .icon-btn:hover { background: var(--glass-3); color: #fff; }
+.adv-actions .icon-btn { width: 34px; height: 34px; background: transparent; border-color: transparent; box-shadow: none; color: rgba(203, 213, 225, .85); }
+.adv-actions .icon-btn:hover { background: rgba(255, 255, 255, .12); color: #fff; }
 .adv-actions .icon-btn svg { width: 16px; height: 16px; }
 .adv-empty { text-align: center; color: var(--ink-2); text-shadow: 0 1px 8px rgba(30, 20, 80, .45); }
 
@@ -623,6 +661,10 @@ section { scroll-margin-top: 84px; }
   .outlets-go { display: none; }
   .tbc { width: 92px; height: 92px; font-size: 13px; }
   .adv-hero { padding: 24px 22px; }
+  .adv-strand-head { gap: 10px; padding: 13px 14px 12px; }
+  .adv-strand-nav { display: none; }
+  .adv-row { gap: 12px; padding: 12px; scroll-padding: 0 12px; }
+  .adv-card { flex-basis: min(80vw, 300px); }
   .adv-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
   .adv-stat { padding: 10px 11px; }
   .adv-stat b { font-size: 18px; white-space: nowrap; }
@@ -644,6 +686,6 @@ section { scroll-margin-top: 84px; }
   .rise { opacity: 1; transform: none; }
 }
 @media (prefers-reduced-transparency: reduce) {
-  .glass, .strand, .adv-card, .chip, .nav { -webkit-backdrop-filter: none; backdrop-filter: none; background: rgba(30, 36, 80, .94); }
+  .glass, .strand, .adv-strand, .adv-card, .chip, .nav { -webkit-backdrop-filter: none; backdrop-filter: none; background: rgba(30, 36, 80, .94); }
   .glass-clear { -webkit-backdrop-filter: none; backdrop-filter: none; background: rgba(30, 34, 70, .96); }
 }

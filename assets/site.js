@@ -92,7 +92,8 @@
   (function sky() {
     var mark = document.getElementById('people');
     var canvas = document.querySelector('.sky-stars');
-    if (!mark || !canvas) return;
+    var always = root.hasAttribute('data-night');   // <html data-night>: night from the start
+    if ((!mark && !always) || !canvas) return;
     var ctx = canvas.getContext('2d');
     var stars = [], meteors = [], w = 0, h = 0, dpr = 1, night = 0, raf = 0, nextMeteor = 0;
     var tints = ['255,255,255', '255,255,255', '207,224,255', '255,230,199', '255,209,232'];
@@ -155,10 +156,13 @@
       if (!reduceMotion) raf = requestAnimationFrame(loop);
     }
     function update() {
-      var r = mark.getBoundingClientRect(), vh = window.innerHeight;
-      var start = vh * 1.2, end = vh * 0.3;
-      var p = clamp((start - r.top) / (start - end), 0, 1);
-      p = p * p * (3 - 2 * p);
+      var p = 1;
+      if (!always) {
+        var r = mark.getBoundingClientRect(), vh = window.innerHeight;
+        var start = vh * 1.2, end = vh * 0.3;
+        p = clamp((start - r.top) / (start - end), 0, 1);
+        p = p * p * (3 - 2 * p);
+      }
       if (Math.abs(p - night) > 0.001) {
         night = p;
         root.style.setProperty('--night', p.toFixed(3));

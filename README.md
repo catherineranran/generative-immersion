@@ -10,7 +10,7 @@ Promoters: Ranran Li (Max Planck Institute for the Study of Crime, Security and 
 | Address | File | What it is |
 |---|---|---|
 | `/` | `index.html` | Main page: 01 About, 02 Technology, 03 Ongoing research (perspective paper, two studies, journal outlets link), 04 Promise, 05 People & connect |
-| `/AI-advances/` | `AI-advances/index.html` + `items.json` | Picture-first cards tracing AI advances |
+| `/AI-advances/` | `AI-advances/index.html` + `items.json` | AI advances in five horizontal strands (like the Exhibition page on ranranli.net, turned on its side), under the night sky |
 | `/journals/` | `journals/index.html` | Forwards to the Generative Immersion Journal Atlas on ranranli.net |
 | any missing page | `404.html` | Glass "not found" page |
 
@@ -24,15 +24,28 @@ Fonts: Inter (Google Fonts), DM Mono for labels, Georgia italic for accents. Str
 
 ## Adding an AI advance
 
-Add an object to `items` in `AI-advances/items.json` (newest dates show first):
+The page has five strands, each a row of cards that scrolls sideways, newest first:
+
+| `kind` | Strand |
+|---|---|
+| `video` | 01 Video models |
+| `world` | 02 Real-time world models |
+| `3d` | 03 3D worlds & objects |
+| `people` | 04 Virtual people (empty for now; shows "Coming soon") |
+| `device` | 05 Equipment: Headsets & glasses |
+
+The strand names, colours and one-line descriptions sit at the top of `assets/advances.js` (`STRANDS`).
+Add an object to `items` in `AI-advances/items.json`:
 
 ```json
 {
   "id": "short-id",
   "name": "Model name",
   "org": "Who made it",
-  "kind": "video | world | 3d | avatar | tool | paper",
+  "kind": "video | world | 3d | people | device",
+  "status": "optional label, e.g. Preview, Early access, Announced (leave out once it is released)",
   "date": "YYYY-MM-DD (release; the card shows the maker and month, e.g. \"Google DeepMind, released Oct 2026\")",
+  "dateNote": "optional, replaces the word released, e.g. announced, on sale since, in Germany since",
   "added": "YYYY-MM-DD (shows a New tag for 14 days)",
   "summary": "Two or three lines on what it does.",
   "why": "One line on why it matters for research.",
@@ -45,7 +58,7 @@ Add an object to `items` in `AI-advances/items.json` (newest dates show first):
 }
 ```
 
-Update `"updated"` at the top of the file. Filter chips appear once there are two or more kinds.
+Update `"updated"` at the top of the file. Pictures from other sites are linked, not copied; a heavy one (over about 500 KB) is better saved here as `img/short-id.webp` at 800×450.
 
 ## Ongoing research cards
 
