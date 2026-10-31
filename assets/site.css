@@ -414,17 +414,17 @@ section { scroll-margin-top: 84px; }
    03 Ongoing research: horizontal cards, figure on the very left
    -------------------------------------------------------------------------- */
 .projects { display: grid; gap: 22px; }
-.project { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); width: 75%; justify-self: center; border-radius: 24px; overflow: hidden; }
+.project { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); width: 85%; justify-self: center; border-radius: 24px; overflow: hidden; }
 .project-fig { margin: 0; display: grid; place-items: center; background: var(--fig, #1c1d24); border-right: 1px solid var(--line-2); }
 .project-fig img, .project-fig svg { display: block; width: 100%; height: auto; }
-.project-body { padding: 18px 24px 18px; }
-.project-body > .label { font-size: 11px; }
-.project-body h3 { margin: 6px 0 0; font: 650 clamp(19px, 1.6vw, 22px)/1.15 var(--sans); letter-spacing: -.02em; }
-.project-sub { margin: 3px 0 0; font: italic 400 clamp(14.5px, 1.15vw, 16px)/1.35 var(--serif); color: rgba(255, 255, 255, .92); }
-.project-desc { margin: 10px 0 0; color: var(--ink-2); font-size: 13px; line-height: 1.5; }
-.project-body h4 { margin: 12px 0 2px; font-size: 10.5px; color: var(--accent-strong); }
+.project-body { padding: 22px 28px 22px; }
+.project-body > .label { font-size: 11.5px; }
+.project-body h3 { margin: 6px 0 0; font: 650 clamp(21px, 1.85vw, 25px)/1.15 var(--sans); letter-spacing: -.02em; }
+.project-sub { margin: 3px 0 0; font: italic 400 clamp(15.5px, 1.3vw, 18px)/1.35 var(--serif); color: rgba(255, 255, 255, .92); }
+.project-desc { margin: 12px 0 0; color: var(--ink-2); font-size: 14.5px; line-height: 1.55; }
+.project-body h4 { margin: 16px 0 3px; font-size: 11px; color: var(--accent-strong); }
 .pubs { list-style: none; margin: 0; padding: 0; }
-.pubs li { padding: 6px 0; border-top: 1px solid var(--line-2); font-size: 12px; line-height: 1.45; color: rgba(255, 255, 255, .84); }
+.pubs li { padding: 7px 0; border-top: 1px solid var(--line-2); font-size: 13px; line-height: 1.45; color: rgba(255, 255, 255, .84); }
 .pubs li:first-child { border-top: 0; }
 .pubs a { color: #fff; text-decoration-color: rgba(255, 255, 255, .45); }
 .pubs a:hover { text-decoration-color: #fff; }
