@@ -63,6 +63,31 @@
 
   var data = null;
 
+  // A picture that fails to load becomes the colour tile with the name.
+  // YouTube answers a missing HD thumbnail with a grey 120x90 placeholder, so try hqdefault first.
+  var YT = /^https:\/\/(i\d?\.ytimg\.com|img\.youtube\.com)\/vi\/[^/]+\/maxres(default|\d)\.jpg$/;
+  function guardCovers(root) {
+    Array.prototype.forEach.call(root.querySelectorAll('.adv-cover img'), function (img) {
+      function toTile() {
+        if (!img.parentNode) return;
+        var tile = document.createElement('div');
+        tile.className = 'adv-tile';
+        var span = document.createElement('span');
+        span.textContent = img.getAttribute('data-name') || '';
+        tile.appendChild(span);
+        img.parentNode.replaceChild(tile, img);
+      }
+      function check() {
+        if (img.naturalWidth > 120) return;
+        if (YT.test(img.src)) img.src = img.src.replace(/maxres(default|\d)\.jpg$/, 'hqdefault.jpg');
+        else if (/ytimg\.com|img\.youtube\.com/.test(img.src)) toTile();
+      }
+      img.addEventListener('error', toTile);
+      img.addEventListener('load', check);
+      if (img.complete) { if (!img.naturalWidth) toTile(); else check(); }
+    });
+  }
+
   function card(it, first) {
     var link = safeUrl(it.link);
     var d = parseDate(it.date);
@@ -71,7 +96,7 @@
     var byline = it.org ? esc(it.org) + (when ? ', ' + when : '') : (when ? when.charAt(0).toUpperCase() + when.slice(1) : '');
     var img = it.img ? safeUrl(it.img) : '';
     var cover = img
-      ? '<img src="' + esc(img) + '" alt="' + esc(it.imgAlt || '') + '" loading="' + (first ? 'eager' : 'lazy') + '" width="800" height="450">'
+      ? '<img src="' + esc(img) + '" alt="' + esc(it.imgAlt || '') + '" data-name="' + esc(it.name) + '" loading="' + (first ? 'eager' : 'lazy') + '" width="800" height="450">'
       : '<div class="adv-tile"><span>' + esc(it.name) + '</span></div>';
     var extra = (it.links || []).map(function (l) {
       var u = safeUrl(l.url);
@@ -168,6 +193,7 @@
     renderStats(all);
     renderJump(groups);
     $('#advStrands').innerHTML = STRANDS.map(function (s) { return strand(s, groups[s.k]); }).join('');
+    guardCovers($('#advStrands'));
     watchRows();
   }
 
