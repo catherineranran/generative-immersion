@@ -85,22 +85,20 @@
             : '<div class="adv-cover">' + cover + '</div>') +
       '<div class="adv-body">' +
         (tags ? '<div class="adv-top">' + tags + '</div>' : '') +
-        '<h3>' + (link ? '<a href="' + esc(link) + '" target="_blank" rel="noopener">' + esc(it.name) + '</a>' : esc(it.name)) + '</h3>' +
+        '<h3>' + (link ? '<a href="' + esc(link) + '" target="_blank" rel="noopener" title="' + esc(it.linkLabel || 'Open') + '">' + esc(it.name) + '<span class="adv-ext" aria-hidden="true">&#8599;</span></a>' : esc(it.name)) + '</h3>' +
         (byline ? '<p class="adv-org">' + byline + '</p>' : '') +
         (it.summary ? '<p class="adv-sum" title="' + esc(it.summary) + '">' + esc(it.summary) + '</p>' : '') +
         (it.why ? '<p class="adv-why"><span class="label">For research</span>' + esc(it.why) + '</p>' : '') +
-        '<div class="adv-actions">' +
-          (link ? '<a class="btn small primary" href="' + esc(link) + '" target="_blank" rel="noopener">' + esc(it.linkLabel || 'Open') + ' ' + ICON.ext + '</a>' : '') +
-          '<span class="spacer"></span>' + extra +
+        ((extra || it.credit) ? '<div class="adv-actions">' + extra +
           (it.credit ? '<span class="icon-btn" tabindex="0" role="img" title="' + esc(it.credit) + '" aria-label="' + esc(it.credit) + '">' + ICON.info + '</span>' : '') +
-        '</div>' +
+        '</div>' : '') +
       '</div>' +
     '</article>';
   }
 
   function strand(s, items) {
     var label = s.short || s.name;
-    return '<section class="adv-strand" id="' + s.id + '" style="--k:' + s.c + '" aria-labelledby="' + s.id + '-title">' +
+    return '<section class="adv-strand glass" id="' + s.id + '" style="--k:' + s.c + '" aria-labelledby="' + s.id + '-title">' +
       '<header class="adv-strand-head">' +
         '<span class="adv-strand-num" aria-hidden="true">' + s.n + '</span>' +
         '<div class="adv-strand-titles"><h2 id="' + s.id + '-title">' + esc(s.name) + '</h2><p>' + esc(s.desc) + '</p></div>' +
