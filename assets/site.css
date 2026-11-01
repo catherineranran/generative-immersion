@@ -120,11 +120,11 @@ button { font: inherit; color: inherit; }
 }
 .glass > * { position: relative; }
 
-/* the clearer glass of the ranranli.net contact card */
+/* the clearer glass of the ranranli.net contact card, made clearer still so the moonlit peaks show through */
 .glass-clear {
   position: relative;
-  background: linear-gradient(180deg, rgba(255, 255, 255, .075), rgba(255, 255, 255, .02));
-  -webkit-backdrop-filter: blur(12px) saturate(145%); backdrop-filter: blur(12px) saturate(145%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, .05), rgba(255, 255, 255, .01));
+  -webkit-backdrop-filter: blur(6px) saturate(130%); backdrop-filter: blur(6px) saturate(130%);
   border: 1px solid rgba(255, 255, 255, .08);
   border-top-color: rgba(255, 255, 255, .16);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, .18), 0 14px 36px rgba(5, 10, 25, .2);
@@ -508,20 +508,28 @@ section { scroll-margin-top: 84px; }
 /* --------------------------------------------------------------------------
    04 Promise: an indexed ledger rather than a grid of cards
    -------------------------------------------------------------------------- */
-.ledger { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-radius: 30px; overflow: hidden; }
+/* the ledger and the caveat keep to the width of the research cards (85%, centred); their glass is a little clearer than elsewhere */
+.ledger {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 85%; margin-inline: auto; border-radius: 30px; overflow: hidden;
+  background: rgba(26, 34, 82, .33);
+  -webkit-backdrop-filter: blur(14px) saturate(160%); backdrop-filter: blur(14px) saturate(160%);
+  text-shadow: 0 1px 10px rgba(20, 14, 60, .35);   /* keeps the type crisp on the clearer glass */
+}
+.ledger::before { opacity: .4; }   /* less milky sheen at the upper left */
 .ledger-item { display: grid; grid-template-columns: 3rem minmax(0, 1fr); align-content: start; gap: 0 12px; padding: 30px 34px 32px; border-top: 1px solid var(--line-2); }
 .ledger-item:nth-child(-n + 2) { border-top: 0; }
 .ledger-item:nth-child(odd) { border-right: 1px solid var(--line-2); }
 .ledger-num { font: 500 13px/1.9 var(--mono); letter-spacing: .1em; color: var(--accent-strong); }
 .ledger-item h3 { margin: 0; font: 650 clamp(20px, 1.9vw, 24px)/1.2 var(--sans); letter-spacing: -.02em; }
 .ledger-item p { grid-column: 2; margin: 8px 0 0; color: var(--ink-2); font-size: 16px; line-height: 1.6; max-width: 32rem; }
-.ledger-item .eg { display: block; margin-top: 10px; font: italic 15.5px/1.5 var(--serif); color: rgba(255, 255, 255, .8); }
+.ledger-item .eg { display: block; margin-top: 10px; font: italic 15.5px/1.5 var(--serif); color: rgba(255, 255, 255, .86); }
 
 .caveat {
   display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.4fr); gap: 18px 40px;
-  margin-top: 22px; padding: 28px 34px; border-radius: 24px;
-  border: 1px dashed rgba(255, 255, 255, .42); background: rgba(16, 18, 54, .3);
-  -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+  width: 85%; margin: 22px auto 0; padding: 28px 34px; border-radius: 24px;
+  border: 1px dashed rgba(255, 255, 255, .42); background: rgba(16, 18, 54, .24);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  text-shadow: 0 1px 10px rgba(20, 14, 60, .35);
 }
 .caveat h3 { margin: 6px 0 0; font: italic 400 26px/1.2 var(--serif); }
 .caveat p { margin: 0; color: var(--ink-2); }
@@ -716,6 +724,7 @@ section { scroll-margin-top: 84px; }
 }
 @media (max-width: 860px) {
   .project { grid-template-columns: 1fr; width: 100%; }
+  .ledger, .caveat { width: 100%; }
   .project-fig { border-right: 0; border-bottom: 1px solid var(--line-2); }
 }
 @media (max-width: 760px) {
