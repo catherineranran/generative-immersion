@@ -631,7 +631,7 @@ section { scroll-margin-top: 84px; }
 
 /* each strand is a pane of glass (.glass) with a header and a row of cards, like a column on the Exhibition page turned on its side */
 .adv-strands { display: grid; gap: 18px; }
-.adv-strand { min-width: 0; scroll-margin-top: 96px; border-radius: 24px; }
+.adv-strand { min-width: 0; scroll-margin-top: 150px; border-radius: 24px; }   /* below the tags hanging from the nav */
 .adv-strand-head { display: flex; align-items: center; gap: 14px; padding: 12px 18px 11px; border-bottom: 1px solid rgba(255, 255, 255, .1); }
 .adv-strand-num { align-self: flex-start; padding-top: 5px; font: 500 12px/1 var(--mono); letter-spacing: .12em; color: var(--k); }
 .adv-strand-titles { flex: 1; min-width: 0; }
@@ -743,6 +743,7 @@ section { scroll-margin-top: 84px; }
   .outlets-go { display: none; }
   .tbc { width: 92px; height: 92px; font-size: 13px; }
   .adv-hero { padding: 24px 22px; margin-top: clamp(40px, 7vh, 80px); }
+  .adv-strand { scroll-margin-top: 96px; }
   .pp-main { padding-top: 36px; }
   .pp-lock { min-height: calc(100svh - 230px); }
   .pp-hero { flex-direction: column; padding: 24px 22px; }
