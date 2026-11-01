@@ -11,10 +11,17 @@ Promoters: Ranran Li (Max Planck Institute for the Study of Crime, Security and 
 |---|---|---|
 | `/` | `index.html` | Main page: 01 About, 02 Technology (three strands side by side: Video models, Real-time world models, 3D worlds & objects, and a Follow AI advances button), 03 Ongoing research (perspective paper, two studies, journal outlets link), 04 Promise, 05 People & connect |
 | `/AI-advances/` | `AI-advances/index.html` + `items.json` | AI advances in five horizontal strands (like the Exhibition page on ranranli.net, turned on its side), under the night sky |
+| `/position-paper/` | `position-paper/index.html` + `assets/position-paper.js` | Position paper: a password lock (as on ranranli.net/projects/scalable-immersion), then the paper's title, authors and a preview of the Google Doc |
 | `/journals/` | `journals/index.html` | Forwards to the Generative Immersion Journal Atlas on ranranli.net |
 | any missing page | `404.html` | Glass "not found" page |
 
 Addresses are case-sensitive: `/AI-advances/` works, `/ai-advances/` does not.
+
+The navigation has five sections. Small links hang beneath two of them: AI advances beneath Technology, and Position paper and Journal outlets beneath Research (`.nav-group` > `.nav-sub` > `.nav-subitem`). On wider screens they hang below the capsule as small glass tags on a thread; on phones they sit in the row after their section. On a subpage, mark its small link with `aria-current="page"`; the white thumb then sits on the section it hangs from.
+
+### Position paper lock
+
+What appears after the lock opens (label, title, subtitle, authors, document title and the Google Doc link) is stored only in encrypted form in `assets/position-paper.js` (`SEALED`): AES-GCM with a 256-bit key derived from the password by PBKDF2-SHA-256 with 250,000 rounds, a random 16-byte salt and 12-byte IV, all base64; the plain text is the JSON of those fields. The password is not in this repository. To change the content or the password, encrypt a new JSON with Node's `crypto.webcrypto` using the same settings and replace `SEALED`. The Google Doc preview is the document's `/preview` address in an iframe, so its Google Drive sharing settings decide who can see and edit it.
 
 ## Look
 

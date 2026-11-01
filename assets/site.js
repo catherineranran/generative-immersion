@@ -23,22 +23,31 @@
       return el ? { item: item, el: el } : null;
     }).filter(Boolean);
 
-    var page = items.filter(function (i) { return i.getAttribute('aria-current') === 'page'; })[0] || null;
+    // on a subpage, the thumb sits on the section its small link hangs from (AI advances: Technology)
+    var sub = track.querySelector('.nav-subitem[aria-current="page"]');
+    var parent = sub && sub.closest('.nav-group') && sub.closest('.nav-group').querySelector('.nav-item');
+    var page = items.filter(function (i) { return i.getAttribute('aria-current') === 'page'; })[0] || parent || null;
     var current = page || (sections[0] && sections[0].item) || null;
     var hovered = null;
 
+    // position within the track (items inside a .nav-group have the group as offsetParent)
+    function pos(el) {
+      var t = track.getBoundingClientRect(), r = el.getBoundingClientRect();
+      return { left: r.left - t.left + track.scrollLeft, width: r.width };
+    }
     function place(target, animate) {
       if (!target) { thumb.classList.remove('is-ready'); return; }
+      var p = pos(target);
       thumb.classList.toggle('no-anim', !animate);
-      thumb.style.width = target.offsetWidth + 'px';
-      thumb.style.transform = 'translateX(' + target.offsetLeft + 'px)';
+      thumb.style.width = p.width + 'px';
+      thumb.style.transform = 'translateX(' + p.left + 'px)';
       thumb.classList.add('is-ready');
       items.forEach(function (i) { i.classList.toggle('is-current', i === target); });
       if (!animate) requestAnimationFrame(function () { thumb.classList.remove('no-anim'); });
     }
     function keepInView(target) {
       if (track.scrollWidth <= track.clientWidth) return;
-      var left = target.offsetLeft - 24, right = target.offsetLeft + target.offsetWidth + 24;
+      var p = pos(target), left = p.left - 24, right = p.left + p.width + 24;
       if (left < track.scrollLeft || right > track.scrollLeft + track.clientWidth) {
         track.scrollTo({ left: Math.max(0, left), behavior: reduceMotion ? 'auto' : 'smooth' });
       }

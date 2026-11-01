@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Position paper · Generative Immersion</title>
+  <meta name="description" content="The Generative Immersion position paper, in preparation. The draft is password-protected.">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="theme-color" content="#2a2a62">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;650;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/site.css?v=18">
+</head>
+<body class="pp-page">
+  <a class="skip" href="#main">Skip to content</a>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <filter id="lg-refraction" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.008 0.03" numOctaves="2" seed="7" result="noise"/>
+      <feGaussianBlur in="noise" stdDeviation="2" result="soft"/>
+      <feDisplacementMap in="SourceGraphic" in2="soft" scale="26" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </svg>
+
+  <div class="sky" aria-hidden="true">
+    <div class="sky-day"></div>
+    <div class="sky-veil"></div>
+  </div>
+
+  <div class="nav-wrap">
+    <nav class="nav" aria-label="Main">
+      <div class="nav-track">
+        <span class="nav-thumb" aria-hidden="true"></span>
+        <a class="nav-item nav-brand" href="../"><img src="../assets/favicon.svg" alt="" width="26" height="26"><span>Generative Immersion</span></a>
+        <span class="nav-sep" aria-hidden="true"></span>
+        <a class="nav-item" href="../#about">About</a>
+        <div class="nav-group">
+          <a class="nav-item" href="../#technology">Technology</a>
+          <div class="nav-sub">
+            <a class="nav-subitem" href="../AI-advances/">AI advances</a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <a class="nav-item" href="../#research">Research</a>
+          <div class="nav-sub">
+            <a class="nav-subitem" href="./" aria-current="page">Position paper</a>
+            <a class="nav-subitem" href="https://ranranli.net/generative-immersion-journals/">Journal outlets<span class="nav-ext" aria-hidden="true">&#8599;</span></a>
+          </div>
+        </div>
+        <a class="nav-item" href="../#promise">Promise</a>
+        <a class="nav-item" href="../#people">People</a>
+      </div>
+    </nav>
+  </div>
+
+  <main id="main" class="wrap pp-main">
+    <section id="pp-lock" class="pp-lock" aria-labelledby="pp-lock-title">
+      <div class="pp-panel glass">
+        <p class="label">Private research workspace</p>
+        <h1 id="pp-lock-title">Position <em>paper</em></h1>
+        <p class="pp-copy">Enter the password to read the draft.</p>
+        <form id="pp-form" class="pp-form">
+          <label for="pp-password">Password</label>
+          <div class="pp-row">
+            <input id="pp-password" name="password" type="password" autocomplete="current-password" required>
+            <button class="btn primary" type="submit">Enter</button>
+          </div>
+          <p id="pp-msg" class="pp-msg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="pp-content" class="pp-content" aria-label="Position paper" hidden></section>
+    <noscript><p class="pp-note">This page needs JavaScript to open the lock.</p></noscript>
+  </main>
+
+  <footer class="foot">
+    <span>Generative Immersion &middot; <span data-year>2026</span></span>
+    <span>All rights reserved. <span class="nobr">&copy; Ranran Li,</span> <span class="nobr">Botao Amber Hu,</span> <span class="nobr">&amp; JLvG</span></span>
+  </footer>
+
+  <script src="../assets/site.js?v=6" defer></script>
+  <script src="../assets/position-paper.js?v=1" defer></script>
+</body>
+</html>
