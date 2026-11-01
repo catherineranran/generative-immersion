@@ -477,7 +477,8 @@ section { scroll-margin-top: 84px; }
 
 /* Promoters and Collaborators share one heading size */
 .group-title { margin: 0; font: 650 22px/1.2 var(--sans); letter-spacing: -.015em; }
-.people-head { margin-bottom: 18px; }
+.people-head { grid-template-columns: 1fr; margin-bottom: 18px; }   /* the note sits beneath "Promoters" at every width */
+.people-head .sec-intro { margin-top: -6px; font: italic 400 15px/1.5 var(--serif); }
 .collab-head { display: flex; align-items: baseline; gap: 14px; margin: 56px 0 16px; }
 .collabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .collab { display: block; border-radius: 22px; padding: 20px 22px; color: #fff; }
