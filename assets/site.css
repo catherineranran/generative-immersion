@@ -336,9 +336,9 @@ section { scroll-margin-top: 84px; }
 .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; margin-top: 30px; }
 .hero-meta { margin: 28px 0 0; font: 500 12.5px/1.6 var(--mono); letter-spacing: .06em; color: var(--ink-2); text-wrap: balance; }
 .hero-meta .nobr { white-space: nowrap; }
-/* "genius" hangs at the upper right of Ranran's name, in the purple mono of the strand number 03 */
+/* "genius" hangs above the end of Ranran's name, in the purple mono of the strand number 03 */
 .hero-meta .pin { position: relative; }
-.hero-meta .genius { position: absolute; left: 100%; bottom: 96%; margin-left: 1px; white-space: nowrap; font: 500 10px/1 var(--mono); letter-spacing: .12em; color: var(--s3); text-shadow: 0 1px 8px rgba(30, 20, 80, .55); }
+.hero-meta .genius { position: absolute; right: 0; bottom: 96%; white-space: nowrap; font: 500 10px/1 var(--mono); letter-spacing: .12em; color: var(--s3); text-shadow: 0 1px 8px rgba(30, 20, 80, .55); }
 .hero-meta a { color: #fff; }
 
 .define { border-radius: 28px; padding: 8px 26px; }
