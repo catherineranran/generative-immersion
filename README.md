@@ -17,7 +17,7 @@ Promoters: Ranran Li (Max Planck Institute for the Study of Crime, Security and 
 
 Addresses are case-sensitive: `/AI-advances/` works, `/ai-advances/` does not.
 
-The navigation has five sections. Small links hang beneath two of them: AI advances beneath Technology, and Position paper and Journal outlets beneath Research (`.nav-group` > `.nav-sub` > `.nav-subitem`). On wider screens they hang below the capsule as small glass tags on a thread; on phones they sit in the row after their section. On a subpage, mark its small link with `aria-current="page"`; the white thumb then sits on the section it hangs from.
+The navigation has five sections. Small links hang beneath two of them: AI advances and Applications beneath Technology, and Position paper and Journal outlets beneath Research (`.nav-group` > `.nav-sub` > `.nav-subitem`). On wider screens they hang below the capsule as small glass tags on a thread; on phones they sit in the row after their section. On a subpage, mark its small link with `aria-current="page"`; the white thumb then sits on the section it hangs from.
 
 ### Position paper lock
 
