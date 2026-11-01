@@ -10,7 +10,7 @@ Promoters: Ranran Li (Max Planck Institute for the Study of Crime, Security and 
 | Address | File | What it is |
 |---|---|---|
 | `/` | `index.html` | Main page: 01 About, 02 Technology (three strands side by side: Video models, Real-time world models, 3D worlds & objects, and a Follow AI advances button), 03 Ongoing research (perspective paper, two studies, journal outlets link), 04 Promise, 05 People & connect |
-| `/AI-advances/` | `AI-advances/index.html` + `items.json` | AI advances in five horizontal strands (like the Exhibition page on ranranli.net, turned on its side), under the night sky |
+| `/AI-advances/` | `AI-advances/index.html` + `items.json` | AI advances in five horizontal strands (like the Exhibition page on ranranli.net, turned on its side), under the dusk sky |
 | `/position-paper/` | `position-paper/index.html` + `assets/position-paper.js` | Position paper: a password lock (as on ranranli.net/projects/scalable-immersion), then the paper's title, authors and a preview of the Google Doc |
 | `/journals/` | `journals/index.html` | Forwards to the Generative Immersion Journal Atlas on ranranli.net |
 | any missing page | `404.html` | Glass "not found" page |
@@ -25,8 +25,9 @@ What appears after the lock opens (label, title, subtitle, authors, document tit
 
 ## Look
 
-Liquid glass in the style of the launch pad on ranranli.net: blue-tinted glass (`--glass`, `backdrop-filter: blur(22px) saturate(165%)`) over the launch pad's pastel peaks (`assets/peaks.svg`).
-As the page scrolls to People, the sky turns to the ranranli.net night (`assets/peaks-night.svg`, stars drawn on a canvas in `assets/site.js`), and the contact cards use the homepage's clearer glass (`.glass-clear`).
+Liquid glass in the style of the launch pad on ranranli.net: blue-tinted glass (`--glass`, `backdrop-filter: blur(22px) saturate(165%)`) over "Last light" (`assets/sky-day.webp`, 2560x1600): snow peaks rendered in 3D from a heightmap, where only the summits catch the last pink sun and the slopes fall into lavender shadow.
+As the page scrolls to People, the sky turns to the ranranli.net night: the same peaks by moonlight (`assets/peaks-night.webp`, transparent sky), stars drawn on a canvas in `assets/site.js`, and the contact cards use the homepage's clearer glass (`.glass-clear`).
+Both images are `background-size: cover` at `72% 100%`, so the main summit stays in view on phones. The earlier pastel illustrations (`assets/peaks.svg`, `assets/peaks-night.svg`) are kept in the repo.
 Fonts: Inter (Google Fonts), DM Mono for labels, Georgia italic for accents. Strand colours come from the ranranli.net research strands.
 
 ## Adding an AI advance

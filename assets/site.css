@@ -76,9 +76,11 @@ button { font: inherit; color: inherit; }
 .sky { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
 .sky div, .sky canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
 .sky-day, .sky-peaks-night {
-  background-size: cover; background-position: center bottom; background-repeat: no-repeat;
+  /* 72% keeps the main summit in view on narrow screens */
+  background-size: cover; background-position: 72% 100%; background-repeat: no-repeat;
 }
-.sky-day { background-color: #e7b9cc; background-image: url("peaks.svg"); }
+/* "Last light": snow peaks rendered in 3D, only the summits catch the last pink sun (chosen 1 Nov 2026) */
+.sky-day { background-color: #c9b3e0; background-image: url("sky-day.webp"); }
 .sky-night { opacity: var(--night); }
 .sky-night-air {
   background:
@@ -94,7 +96,7 @@ button { font: inherit; color: inherit; }
 .sky-night-air i:nth-child(2) { width: 40vw; height: 40vw; right: -12vw; top: 14vh; background: #6366f1; opacity: .24; animation-duration: 52s; }
 .sky-night-air i:nth-child(3) { width: 34vw; height: 34vw; left: 26vw; top: 40vh; background: #c084fc; opacity: .14; animation-duration: 60s; }
 @keyframes drift { to { transform: translate(8vw, 10vh) scale(1.12); } }
-.sky-peaks-night { background-image: url("peaks-night.svg"); }
+.sky-peaks-night { background-image: url("peaks-night.webp"); }   /* the same peaks by moonlight, sky transparent */
 .sky-veil {
   /* the launch pad's veil: a little depth so white type holds on the pastel sky */
   background: linear-gradient(180deg, rgba(30, 20, 70, .22), rgba(14, 18, 50, .36) 70%, rgba(14, 18, 50, .44));
@@ -325,7 +327,7 @@ section { scroll-margin-top: 84px; }
   background: radial-gradient(closest-side, rgba(28, 18, 72, .5), rgba(28, 18, 72, .34) 55%, transparent);
   filter: blur(6px);
 }
-.hero-copy::before { inset: -12% -20% -30% -24%; background: radial-gradient(closest-side, rgba(28, 18, 72, .52), rgba(28, 18, 72, .4) 62%, transparent); }
+.hero-copy::before { inset: -26% -20% -30% -24%; background: radial-gradient(closest-side, rgba(28, 18, 72, .54), rgba(28, 18, 72, .42) 62%, transparent); }
 .hero-title {
   margin: 18px 0 26px; font: 650 clamp(3.5rem, 8.8vw, 7.8rem)/.93 var(--sans); letter-spacing: -.05em;
 }
