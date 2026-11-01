@@ -265,7 +265,8 @@ section { scroll-margin-top: 84px; }
 .hero-lead { margin: 0; max-width: 34rem; font-size: clamp(17px, 1.45vw, 19.5px); line-height: 1.58; color: #fff; }
 .hero-lead strong { font-weight: 650; }
 .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; margin-top: 30px; }
-.hero-meta { margin: 28px 0 0; font: 500 12.5px/1.6 var(--mono); letter-spacing: .06em; color: var(--ink-2); }
+.hero-meta { margin: 28px 0 0; font: 500 12.5px/1.6 var(--mono); letter-spacing: .06em; color: var(--ink-2); text-wrap: balance; }
+.hero-meta .nobr { white-space: nowrap; }
 .hero-meta a { color: #fff; }
 
 .define { border-radius: 28px; padding: 8px 26px; }
@@ -460,17 +461,18 @@ section { scroll-margin-top: 84px; }
 /* --------------------------------------------------------------------------
    05 People & connect: the homepage's contact glass
    -------------------------------------------------------------------------- */
-.promoters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
-.contact { border-radius: 22px; padding: 20px 22px 18px; }
+.promoters { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.contact { display: flex; flex-direction: column; border-radius: 22px; padding: 20px 22px 18px; }
 .contact-name { margin: 0; font: 650 20px/1.3 var(--sans); letter-spacing: -.012em; }
 .contact-role { margin: 4px 0 0; color: rgba(226, 232, 240, .8); font-size: 14.5px; line-height: 1.5; }
-.contact-motto { margin: 6px 0 0; font: italic 400 16px/1.45 var(--serif); color: rgba(255, 255, 255, .92); }
+.contact-motto { margin: 6px 0 0; font: italic 400 16px/1.45 var(--serif); color: rgba(255, 255, 255, .92); text-wrap: balance; }
 .contact-mail { display: flex; align-items: center; gap: 10px; margin: 12px 0 10px; font-size: 14.5px; color: rgba(226, 232, 240, .95); text-decoration: none; overflow-wrap: anywhere; }
 .contact-mail svg { width: 25px; height: 20px; flex: none; }
 .contact-mail:hover { color: #6ee7b7; }
+.contact-aff { margin-bottom: 12px; }
 .contact-aff p { margin: 0; color: rgba(226, 232, 240, .82); font-size: 14.5px; line-height: 1.5; }
 .contact-aff .soft { color: rgba(203, 213, 225, .7); }
-.contact-web { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; font: 500 12.5px var(--mono); letter-spacing: .04em; color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255, 255, 255, .35); padding-bottom: 2px; }
+.contact-web { display: inline-flex; align-self: flex-start; align-items: center; gap: 6px; margin-top: auto; font: 500 12.5px var(--mono); letter-spacing: .04em; color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255, 255, 255, .35); padding-bottom: 2px; }
 .contact-web:hover { border-color: #fff; }
 
 /* Promoters and Collaborators share one heading size */
@@ -633,6 +635,9 @@ section { scroll-margin-top: 84px; }
   .collabs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .adv-hero { grid-template-columns: 1fr; }
   .board-wrap { --col: min(36rem, 72vw); }
+}
+@media (max-width: 940px) {
+  .promoters { grid-template-columns: 1fr; }   /* three cards side by side need about 290px each */
 }
 @media (max-width: 860px) {
   .project { grid-template-columns: 1fr; width: 100%; }
