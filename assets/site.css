@@ -138,6 +138,16 @@ button { font: inherit; color: inherit; }
 }
 .glass-clear > * { position: relative; }
 
+/* sheer glass (Ranran, 1 Nov 2026) for the hero's "What we mean" panel, the perspective paper card and the
+   Promise ledger: barely tinted and lightly blurred, so the peaks show through; the backdrop is dimmed a
+   little instead of tinted, which keeps the white type at or above its old contrast */
+.glass-sheer {
+  background: rgba(26, 34, 82, .12);
+  -webkit-backdrop-filter: blur(6px) saturate(135%) brightness(.78); backdrop-filter: blur(6px) saturate(135%) brightness(.78);
+  text-shadow: 0 1px 8px rgba(20, 14, 60, .3);
+}
+.glass-sheer::before { opacity: .2; }
+
 /* --------------------------------------------------------------------------
    Navigation: floating capsule with a white thumb (as on ranranli.net)
    -------------------------------------------------------------------------- */
@@ -508,14 +518,8 @@ section { scroll-margin-top: 84px; }
 /* --------------------------------------------------------------------------
    04 Promise: an indexed ledger rather than a grid of cards
    -------------------------------------------------------------------------- */
-/* the ledger and the caveat keep to the width of the research cards (85%, centred); their glass is a little clearer than elsewhere */
-.ledger {
-  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 85%; margin-inline: auto; border-radius: 30px; overflow: hidden;
-  background: rgba(26, 34, 82, .33);
-  -webkit-backdrop-filter: blur(14px) saturate(160%); backdrop-filter: blur(14px) saturate(160%);
-  text-shadow: 0 1px 10px rgba(20, 14, 60, .35);   /* keeps the type crisp on the clearer glass */
-}
-.ledger::before { opacity: .4; }   /* less milky sheen at the upper left */
+/* the ledger and the caveat keep to the width of the research cards (85%, centred); the ledger is sheer glass */
+.ledger { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 85%; margin-inline: auto; border-radius: 30px; overflow: hidden; }
 .ledger-item { display: grid; grid-template-columns: 3rem minmax(0, 1fr); align-content: start; gap: 0 12px; padding: 30px 34px 32px; border-top: 1px solid var(--line-2); }
 .ledger-item:nth-child(-n + 2) { border-top: 0; }
 .ledger-item:nth-child(odd) { border-right: 1px solid var(--line-2); }
@@ -527,9 +531,9 @@ section { scroll-margin-top: 84px; }
 .caveat {
   display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.4fr); gap: 18px 40px;
   width: 85%; margin: 22px auto 0; padding: 28px 34px; border-radius: 24px;
-  border: 1px dashed rgba(255, 255, 255, .42); background: rgba(16, 18, 54, .24);
-  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
-  text-shadow: 0 1px 10px rgba(20, 14, 60, .35);
+  border: 1px dashed rgba(255, 255, 255, .42); background: rgba(16, 18, 54, .08);
+  -webkit-backdrop-filter: blur(4px) brightness(.85); backdrop-filter: blur(4px) brightness(.85);
+  text-shadow: 0 1px 8px rgba(20, 14, 60, .3);
 }
 .caveat h3 { margin: 6px 0 0; font: italic 400 26px/1.2 var(--serif); }
 .caveat p { margin: 0; color: var(--ink-2); }

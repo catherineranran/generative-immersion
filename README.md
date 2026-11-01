@@ -26,6 +26,7 @@ What appears after the lock opens (label, title, subtitle, authors, document tit
 ## Look
 
 Liquid glass in the style of the launch pad on ranranli.net: blue-tinted glass (`--glass`, `backdrop-filter: blur(22px) saturate(165%)`) over "Last light" (`assets/sky-day.webp`, 2560x1600): snow peaks rendered in 3D from a heightmap, where only the summits catch the last pink sun and the slopes fall into lavender shadow.
+The hero's "What we mean" panel, the perspective paper card and the Promise ledger add `.glass-sheer`: barely tinted, lightly blurred, with the backdrop dimmed (`brightness(.78)`) instead of tinted, so the peaks show through while white text keeps its contrast. The dashed "what has to hold" box is clearer still.
 As the page scrolls to People, the sky turns to the ranranli.net night: the same peaks by moonlight (`assets/peaks-night.webp`, transparent sky), stars drawn on a canvas in `assets/site.js`, and the contact cards use the homepage's clearer glass (`.glass-clear`).
 Both images are `background-size: cover` at `72% 100%`, so the main summit stays in view on phones. The earlier pastel illustrations (`assets/peaks.svg`, `assets/peaks-night.svg`) are kept in the repo.
 Fonts: Inter (Google Fonts), DM Mono for labels, Georgia italic for accents. Strand colours come from the ranranli.net research strands.
