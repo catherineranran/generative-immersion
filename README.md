@@ -3,7 +3,7 @@
 Website of the Generative Immersion initiative: AI-generated immersive situations as research instruments for the behavioral sciences.
 Live at **https://generative-immersion.com** (GitHub Pages, custom domain in `CNAME`; www redirects to it).
 
-Promoters: Ranran Li (Max Planck Institute for the Study of Crime, Security and Law), Botao Amber Hu (University of Oxford) and Jean-Louis van Gelder (Director, Department of Criminology, Max Planck Institute for the Study of Crime, Security and Law).
+Promoters: Ranran Li (Max Planck Institute for the Study of Crime, Security and Law) and Botao Amber Hu (University of Oxford). Collaborators: Jean-Louis van Gelder (Director, Head of MAXLab Freiburg, Max Planck Institute for the Study of Crime, Security and Law) and Misha Sra (University of California, Santa Barbara; University of Oxford).
 
 ## Pages
 
