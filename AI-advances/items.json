@@ -1,6 +1,40 @@
 {
-  "updated": "2026-10-31",
+  "updated": "2026-11-14",
   "items": [
+    {
+      "id": "frameboy",
+      "name": "Frameboy (Atlas in real time)",
+      "org": "World Labs",
+      "kind": "world",
+      "status": "Research preview",
+      "date": "2026-11-05",
+      "added": "2026-11-14",
+      "summary": "Streams worlds made by World Labs' Atlas model to the browser at up to 15 frames per second while you steer the camera, starting from a single image. A curated set of scenes is open to try.",
+      "why": "Lets a participant look around a generated place live in a browser, though only from cloud GPUs and with set scenes for now.",
+      "link": "https://worldlabs.ai/blog/atlas-realtime",
+      "linkLabel": "Announcement",
+      "links": [],
+      "img": "https://worldlabs.ai/api/opengraph-image?imageUrl=/images/blog/atlas-realtime-frameboy-daydream.jpg&title=Frameboy:%20Atlas%20in%20Real-time",
+      "imgAlt": "Frameboy announcement picture from World Labs",
+      "credit": "Picture: World Labs' Frameboy announcement"
+    },
+    {
+      "id": "muse-realtime-avatar",
+      "name": "Muse Realtime Avatar",
+      "org": "Meta",
+      "kind": "people",
+      "date": "2026-11-05",
+      "dateNote": "in the US since",
+      "added": "2026-11-14",
+      "summary": "A talking avatar driven by the same stream as Meta's real-time voice model: you can interrupt it, and it answers in under a second with matching face, hands and posture (448×768, 25 fps).",
+      "why": "Shows a face-to-face AI conversation partner is now feasible; for now only in Meta's Muse app in the US, with no research access.",
+      "link": "https://research.meta.ai/blog/bringing-your-muse-to-life",
+      "linkLabel": "Technical post",
+      "links": [],
+      "img": "https://lookaside.fbsbx.com/elementpath/media/?media_id=2462019687653837&version=1790206154",
+      "imgAlt": "Picture from Meta's Muse Realtime Avatar post",
+      "credit": "Picture: Meta AI Research"
+    },
     {
       "id": "minimax-h3",
       "name": "MiniMax H3",
